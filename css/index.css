@@ -1,0 +1,127 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    max-width: 100%;
+    font-family: Montserrat, sans-serif;
+    line-height: 1.6;
+}
+
+.spaceTop{
+    margin-top: 5vh;
+}
+
+.flex{
+    display: flex;
+}
+
+
+li{
+    list-style-type: none;
+}
+
+header {
+    width: 100%;
+    height: 20vh;
+    background-color: aliceblue;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header ul {
+    width: 100%;
+    gap: 50px;
+}
+
+header ul li {
+    flex: 1;
+    text-align: center;
+}
+
+main{
+
+}
+
+main .intro{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+main .intro img{
+    width: 70%;
+    z-index: -1;
+}
+
+h1{
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    color: aliceblue;
+}
+
+
+#projets{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#projets .card{
+    width: 25%;
+    background-color: aliceblue;
+}
+
+#projets .card .skill{
+    position: absolute;
+    color: aliceblue;
+}
+
+#projets .card .bottom{
+    display: flex;
+    justify-content: space-between;
+}
+
+#skills{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#experiences {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 80%;
+    display: flex;
+    flex-direction: row;
+}
+
+#experiences .left,
+#experiences .right {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#experiences li{
+    list-style-type: initial;
+}
+
+#experiences .left {
+    background-color: #f9f9f9;
+}
+
+#experiences .right img {
+    max-width: 100%;
+    height: auto;
+}
