@@ -1,0 +1,99 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+}
+
+body{
+    width: 100%;
+    max-width: 100%;
+    font-family: Montserrat, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+.spaceTop{
+    margin-top: 5vh;
+}
+
+.flex{
+    display: flex;
+}
+
+
+li{
+    list-style-type: none;
+}
+
+header {
+    width: 100%;
+    height: 20vh;
+    background-color: aliceblue;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header ul {
+    width: 100%;
+    gap: 50px;
+}
+
+header ul li {
+    flex: 1;
+    text-align: center;
+}
+
+.top {
+    gap: 15px;
+}
+
+.btn{
+    background-color: aliceblue;
+    padding: 8px;
+    border-radius: 35px;
+    transition: all 0.2s;
+    gap: 10px;
+}
+
+.warning{
+    color: red;
+}
+
+.warning:hover{
+    background-color: red;
+    color: aliceblue;
+}
+
+.main{
+    margin-top: 2%;
+    gap: 10px;
+    font-family: Arial;
+    background-color: #fdfdfd;
+}
+
+fieldset{
+    width: 80vw;
+}
+
+fieldset .btn{
+    margin-top: 20px;
+    width: 20%;
+}
+
+fieldset .btn:hover{
+    cursor: pointer;
+}
+.form-champs{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-champs label{
+    margin-top: 10px;
+}

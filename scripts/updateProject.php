@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_projet = $_POST["id_projet"];
     $titre = $_POST["titre"];
     $description = $_POST["description"];
-    $competence = $_POST["competence"];
+    $id_competence = isset($_POST["id_competence"]) ? $_POST["id_competence"] : null;
     $lien = $_POST["lien"];
     $date = $_POST["date"];
     $file_max_size = 10000000;
@@ -25,17 +25,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Mettre à jour le projet dnas la bdd
-    $requete = 'UPDATE Projets SET titre = :titre, description = :description, lien = :lien, competence = :competence, image = :image, date = :date WHERE id_projet = :id_projet';
-    $stmt = $connection->prepare($requete);
-    $stmt->bindParam(':titre', $titre);
-    $stmt->bindParam(':description', $description);
-    $stmt->bindParam(':lien', $lien);
-    $stmt->bindParam(':competence', $competence);
-    $stmt->bindParam(':image', $image_path);
-    $stmt->bindParam(':date', $date);
-    $stmt->bindParam(':id_projet', $id_projet);
-    $stmt->execute();
+    // Mettre à jour le projet dans la bdd
+    $requete = 'UPDATE Projets SET titre = :titre, description = :description, lien = :lien, id_competence = :id_competence, image = :image, date = :date WHERE id_projet = :id_projet';
+    $resultats = $connection->prepare($requete);
+    $resultats->bindParam(':titre', $titre);
+    $resultats->bindParam(':description', $description);
+    $resultats->bindParam(':lien', $lien);
+    $resultats->bindParam(':id_competence', $id_competence, PDO::PARAM_INT);
+    $resultats->bindParam(':image', $image_path);
+    $resultats->bindParam(':date', $date);
+    $resultats->bindParam(':id_projet', $id_projet);
+    $resultats->execute();
+
+    // Mettre à jour la table ProjetCompetences
+    if ($id_competence !== null) {
+        $requete_liaison = 'UPDATE ProjetCompetences SET id_competence = :id_competence WHERE id_projet = :id_projet';
+        $resultats_liaison = $connection->prepare($requete_liaison);
+        $resultats_liaison->bindParam(':id_competence', $id_competence, PDO::PARAM_INT);
+        $resultats_liaison->bindParam(':id_projet', $id_projet);
+        $resultats_liaison->execute();
+    }
 
     header("Location: ../dashboard.php");
 }
+?>
