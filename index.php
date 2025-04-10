@@ -108,7 +108,7 @@ $resultats->closeCursor();
                         echo "(". $xp["debut"] . " - ". $xp["fin"] . ")";
                     }
                     else{
-                        echo "(". $xp["debut"] ." - aujourd'hui)";
+                        echo "(". $xp["debut"] ." à aujourd'hui)";
                     }
                     ?>
                 <p></p>
