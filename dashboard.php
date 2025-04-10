@@ -70,8 +70,8 @@ $tabProjetsCompetences = $resultats->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach($tabSkills as $skill): ?>
             <div class="projet flex">
                 <div class="left">
-                    <h3><?php echo $skill["titre"] ?></h3>
-                    <p><strong>Niveau de maîtrise :</strong> <?php echo $skill["maitrise"]?>%</p>
+                    <h3><strong><?php echo $skill["titre"] ?></strong></h3>
+                    <p>Niveau de maîtrise : <?php echo $skill["maitrise"]?>%</p>
                 </div>
                 <div class="right">
                     <a href="scripts/deleteData.php?table=Competences&id=<?php echo $skill["id_competence"]?>&column=id_competence" class="btn warning">Supprimer</a>

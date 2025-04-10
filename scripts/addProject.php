@@ -12,6 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $file_min_size = 0;
     $file_max_size = 10000000;
 
+    if($titre == "" OR $description == "" OR $id_competence == "" OR $date == ""){header("Location: ../dashboard.php"); exit;}
+
     // Récupérer le dernier id pour pouvoir nommer l'image en projet$dernierId+1
     $requete = 'SELECT MAX(id_projet) AS dernier_id FROM Projets';
     $resultats = $connection->query($requete);

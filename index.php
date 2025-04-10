@@ -4,7 +4,7 @@ include("scripts/connection.php");
 
 
 // Projets
-$requete = 'SELECT id_projet, titre, description, date, image, lien FROM Projets';
+$requete = 'SELECT id_projet, titre, description, date, image, lien FROM Projets ORDER BY date DESC';
 $resultats = $connection->query($requete);
 $tabProjets = $resultats->fetchAll(PDO::FETCH_ASSOC);
 $resultats->closeCursor();
@@ -16,7 +16,7 @@ $tabSkills = $resultats->fetchAll(PDO::FETCH_ASSOC);
 $resultats->closeCursor();
 
 // Expériences
-$requete = 'SELECT id_experience, poste, debut, fin, entreprise FROM Experience';
+$requete = 'SELECT id_experience, poste, debut, fin, entreprise FROM Experience ORDER BY fin DESC';
 $resultats = $connection->query($requete);
 $tabXp = $resultats->fetchAll(PDO::FETCH_ASSOC);
 $resultats->closeCursor();
@@ -45,7 +45,7 @@ $resultats->closeCursor();
         <img src="img/header.png" alt="Portfolio de Manya Théo, SAE203. Image principale du header.">
         <h1>Mon Portfolio</h1>
     </div>
-    <section id="projets"  class="spaceTop">
+    <section id="projets" class="spaceTop">
         <h2>Mes projets</h2>
         <?php foreach ($tabProjets as $projet): ?>
             <?php
@@ -67,10 +67,16 @@ $resultats->closeCursor();
                     <p><?php echo $projet['titre']; ?></p>
                     <p><?php echo $projet['date']; ?></p>
                 </div>
-                <a href="<?php echo $projet["lien"] ?>" target="_blank">En savoir plus</a>
+                <div class="description">
+                    <p><?php echo $projet['description']; ?></p>
+                </div>
+                <?php if($projet['lien'] != NULL): ?>
+                    <a href="<?php echo $projet["lien"] ?>" target="_blank" class="more-info">En savoir plus</a>
+                <?php endif; ?>
             </div>
         <?php endforeach; ?>
     </section>
+
     <section id="skills" class="spaceTop">
         <h2>Mes compétences</h2>
         <div class="skills spaceTop">
@@ -102,10 +108,10 @@ $resultats->closeCursor();
                         echo "(". $xp["debut"] . " - ". $xp["fin"] . ")";
                     }
                     else{
-                        echo "(". $xp["debut"] .")";
+                        echo "(". $xp["debut"] ." - aujourd'hui)";
                     }
                     ?>
-                <p class="skill"><?php echo $competence["titre"] ?></p>
+                <p></p>
             </li>
             <?php endforeach ?>
         </div>

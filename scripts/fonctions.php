@@ -44,23 +44,3 @@ function uploadFile($file, $content_dir, $allowed_extensions, $file_max_size, $c
         return false;
     }
 }
-
-// Supprimer des données (pour éviter d'avoir plusieurs fichiers deleteX...)
-
-function deleteData($table, $id, $get){
-    include("../config/configuration.php");
-    include("../scripts/connection.php");
-
-    // Exemple d'utlisation : deleteData("Competences", "id_competence", "id_competence");
-    //      Au lieu de :
-    //              $requete = 'DELETE FROM Competences WHERE id_competence ='.$_GET['id_competence'];
-    //              $resultats = $connection->exec($requete);
-    //              header('Location: ../dashboard.php');
-    // ------------------------------------------------------------
-
-    $requete = 'DELETE FROM' .$table .'WHERE' .$id . ' = :value';
-    $resultats = $connection->exec($requete);
-    $resultats->bindParam(':value', $_GET[$get], PDO::PARAM_INT);
-
-    $stmt->execute();
-}

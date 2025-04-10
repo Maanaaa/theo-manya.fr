@@ -10,6 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fin = $_POST["fin"];
     $competence = $_POST["id_competence"];
 
+
+    if($poste == "" OR $entreprise == "" OR $debut == "" OR $competence == ""){header("Location: ../dashboard.php"); exit;}
     if (empty($fin)) {
         $fin = NULL;
     }

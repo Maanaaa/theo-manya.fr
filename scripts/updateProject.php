@@ -15,7 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $content_dir = "../img/projets/";
 
-    $image_path = $_POST["current_image"]; // Chemin actuel de l'image, pour vérifier si l'image a été changée ou non
+    $image_path = $_POST["current_image"];
+
+    if ($image_path && file_exists($image_path)) {
+        unlink($image_path);
+    }
+
     if (isset($_FILES["image"]) && $_FILES["image"]["error"] == UPLOAD_ERR_OK) {
         if ($_FILES["image"]["size"] > 0) {
             $result = uploadFile($_FILES["image"], $content_dir, $allowed_extensions, $file_max_size, $connection);
@@ -23,9 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $image_path = $result;
             }
         }
+    } else {
+        $image_path = $_POST["current_image"];
     }
 
-    // Mettre à jour le projet dans la bdd
     $requete = 'UPDATE Projets SET titre = :titre, description = :description, lien = :lien, id_competence = :id_competence, image = :image, date = :date WHERE id_projet = :id_projet';
     $resultats = $connection->prepare($requete);
     $resultats->bindParam(':titre', $titre);
@@ -37,7 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultats->bindParam(':id_projet', $id_projet);
     $resultats->execute();
 
-    // Mettre à jour la table ProjetCompetences
     if ($id_competence !== null) {
         $requete_liaison = 'UPDATE ProjetCompetences SET id_competence = :id_competence WHERE id_projet = :id_projet';
         $resultats_liaison = $connection->prepare($requete_liaison);
