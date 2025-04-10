@@ -72,11 +72,11 @@ h1{
 }
 
 
-#projets{
+#projets {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 80%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -86,9 +86,28 @@ h1{
     background-color: aliceblue;
 }
 
+#projets .card img{
+    width: 350px;
+    height: 225px;
+}
+
 #projets .card .skill{
     position: absolute;
     color: aliceblue;
+    background-color: #3c3c3c;
+    border-radius: 35px;
+    min-width: 50px;
+
+    text-align: center;
+}
+
+#experiences .skill{
+    color: aliceblue;
+    background-color: #3c3c3c;
+    border-radius: 35px;
+    min-width: 50px;
+    max-width: 50%;
+    text-align: center;
 }
 
 #projets .card .bottom{

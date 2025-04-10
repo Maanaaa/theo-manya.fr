@@ -24,6 +24,16 @@ a {
     display: flex;
 }
 
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+select{
+    float: left;
+}
+
+
 
 li{
     list-style-type: none;

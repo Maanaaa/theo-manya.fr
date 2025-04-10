@@ -26,7 +26,7 @@ if(isset($_GET['id_competence'])){
 <form action="scripts/updateSkill.php" method="post">
     <fieldset>
         <input type="hidden" id="id_competence" name="id_competence" value="<?php echo $competence["id_competence"]; ?>">
-        <legend>Ajouter une compétence</legend>
+        <legend>Mettre à jour une compétence</legend>
         <label for="titre">Titre de la compétence</label>
         <input type="text" name="titre" placeholder="HTML / CSS / Javascript" required value="<?php echo $competence['titre'] ?>">
         <label for="maitrise">Niveau de maîtrise (%)</label>

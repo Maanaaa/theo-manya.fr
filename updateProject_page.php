@@ -29,7 +29,7 @@ if (isset($_GET['id_projet'])) {
 <body>
 <?php include("components/dashboardHeader.php"); ?>
 <form action="scripts/updateProject.php" enctype="multipart/form-data" method="post">
-    <fieldset>
+    <fieldset class="column">
         <legend>Mettre à jour un projet</legend>
         <input type="hidden" name="id_projet" value="<?php echo $projet['id_projet']; ?>">
         <label for="titre">Titre du projet</label>
@@ -41,11 +41,12 @@ if (isset($_GET['id_projet'])) {
         <label for="image">Image</label>
         <input type="file" id="image" name="image">
         <input type="hidden" name="current_image" value="<?php echo $projet['image']; ?>">
+        <img src="<?php echo $projet['image']; ?>" alt="Image du projet">
         <label for="competence">Compétence liée</label>
         <select name="id_competence" id="competence">
             <option value="none">Aucune compétence associée</option>
             <?php foreach ($tabCompetences as $competence) : ?>
-                <option value="<?php echo $competence['id_competence']; ?>">
+                <option value="<?php echo $competence['id_competence']; ?>"
                     <?php if ($projet['id_competence'] == $competence['id_competence']) echo 'selected'; ?>>
                     <?php echo $competence['titre']; ?>
                 </option>
