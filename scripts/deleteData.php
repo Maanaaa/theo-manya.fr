@@ -3,7 +3,6 @@ include("../config/configuration.php");
 include("../scripts/connection.php");
 include("fonctions.php");
 
-// Vérifiez que les paramètres nécessaires sont définis et que l'ID est numérique
 if (isset($_GET['table'], $_GET['id'], $_GET['column']) && is_numeric($_GET['id'])) {
     $table = $_GET['table'];  // Table
     $id = $_GET['id'];        // ID
@@ -32,7 +31,7 @@ if (isset($_GET['table'], $_GET['id'], $_GET['column']) && is_numeric($_GET['id'
         $resultats_liaison->execute();
     }
 
-    // Supprimer l'enregistrement principal
+    // Supprimer l'enregistrement
     $requete = 'DELETE FROM ' . $table . ' WHERE ' . $column . ' = :id';
     $resultats = $connection->prepare($requete);
     $resultats->bindParam(':id', $id, PDO::PARAM_INT);

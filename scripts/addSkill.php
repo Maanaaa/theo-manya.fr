@@ -6,7 +6,7 @@ include("../scripts/fonctions.php");
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $titre = $_POST["titre"];
     $maitrise = $_POST["maitrise"];
-    // Si les champs sont bien saisis
+    // Si les champs sont saisis
     if($titre != "" && $maitrise != ""){
         // Ajouter la compétence dans la base de donnée
         $requete = 'INSERT INTO Competences (titre, maitrise) VALUES (:titre, :maitrise)';
