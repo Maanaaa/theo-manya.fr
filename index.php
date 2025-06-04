@@ -28,11 +28,17 @@ $resultats->closeCursor();
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,300,500,600,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap">
+    <script src="js/typeEffect.js"></script>
 </head>
 <body>
     <header class="flex horizontal-center vertical-center">
         <nav>
-            <h2>MANYA Théo</h2>
+            <div class="titre">
+                <p>Théo <span>MANYA</span></p>
+            </div>
             <ul class="flex">
                 <li><a href="#projets">Projets</a></li>
                 <li><a href="#skills">Compétences</a></li>
@@ -40,45 +46,59 @@ $resultats->closeCursor();
             </ul>
         </nav>
     </header>
-    <main class="spaceTop">
     <div class="intro">
-        <img src="img/header.png" alt="Portfolio de Manya Théo, SAE203. Image principale du header.">
-        <h1>Mon Portfolio</h1>
+        <!---<img src="img/header.png" alt="Portfolio de Manya Théo, SAE203. Image principale du header."> !-->
+        <h1 class="typingEffect"></h1>
+        <div class="description spaceTop">
+            <p>Passionné par le développement, le design et les interfaces modernes. Je crée des expériences digitales uniques qui allient technique et créativité.</p>
+            <a href="#projets" class="spaceTop">Voir mes projets</a>
+        </div>
+       
     </div>
-    <section id="projets" class="spaceTop">
-        <h2>Mes projets</h2>
-        <?php foreach ($tabProjets as $projet): ?>
-            <?php
-            // Récupérer les compétences pour ce projet
-            $requete_competences = 'SELECT c.titre FROM ProjetCompetences pc JOIN Competences c ON pc.id_competence = c.id_competence WHERE pc.id_projet = :id_projet';
-            $resultats_competences = $connection->prepare($requete_competences);
-            $resultats_competences->bindParam(':id_projet', $projet['id_projet']);
-            $resultats_competences->execute();
-            $tabProjetsCompetences = $resultats_competences->fetchAll(PDO::FETCH_ASSOC);
-            ?>
-            <div class="card spaceTop">
-                <p class="skill">
-                    <?php foreach ($tabProjetsCompetences as $competence): ?>
-                        <?php echo $competence['titre'] . ' '; ?>
-                    <?php endforeach; ?>
-                </p>
-                <img src="<?php echo $projet['image']; ?>" alt="Portfolio de Manya Théo, SAE203.">
-                <div class="bottom">
-                    <p><?php echo $projet['titre']; ?></p>
-                    <p><?php echo $projet['date']; ?></p>
+    <section id="projets" class="spaceTopPadding">
+        <div class="description showCase">
+            <p><span>Portfolio</span></p>
+            <h2 class="smallSpaceTop">Mes <span>Projets</span></h2>    
+            <p class="smallSpaceTop">Découvrez une sélection de mes réalisations, alliant technique et créativité pour offrir des expériences digitales uniques.</p>
+        </div>
+        <div class="projets">
+            <?php foreach ($tabProjets as $projet): ?>
+                <?php
+                // Récupérer les compétences pour ce projet
+                $requete_competences = 'SELECT c.titre FROM ProjetCompetences pc JOIN Competences c ON pc.id_competence = c.id_competence WHERE pc.id_projet = :id_projet';
+                $resultats_competences = $connection->prepare($requete_competences);
+                $resultats_competences->bindParam(':id_projet', $projet['id_projet']);
+                $resultats_competences->execute();
+                $tabProjetsCompetences = $resultats_competences->fetchAll(PDO::FETCH_ASSOC);
+                ?>
+                <div class="card spaceTop">
+                    <p class="skill">
+                        <?php foreach ($tabProjetsCompetences as $competence): ?>
+                            <?php echo $competence['titre'] . ' '; ?>
+                        <?php endforeach; ?>
+                    </p>
+                    <img src="<?php echo $projet['image']; ?>" alt="Portfolio de Manya Théo, SAE203.">
+                    <div class="bottom">
+                        <p><?php echo $projet['titre']; ?></p>
+                        <p><?php echo $projet['date']; ?></p>
+                    </div>
+                    <div class="description">
+                        <p><?php echo $projet['description']; ?></p>
+                    </div>
+                    <?php if($projet['lien'] != NULL): ?>
+                        <a href="<?php echo $projet["lien"] ?>" target="_blank" class="more-info">En savoir plus</a>
+                    <?php endif; ?>
                 </div>
-                <div class="description">
-                    <p><?php echo $projet['description']; ?></p>
-                </div>
-                <?php if($projet['lien'] != NULL): ?>
-                    <a href="<?php echo $projet["lien"] ?>" target="_blank" class="more-info">En savoir plus</a>
-                <?php endif; ?>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </section>
 
     <section id="skills" class="spaceTop">
-        <h2>Mes compétences</h2>
+        <div class="description showCase">
+            <p><span>Expertise</span></p>
+            <h2 class="smallSpaceTop">Mes <span>Compétences</span></h2>    
+            <p class="smallSpaceTop">Découvrez une sélection de mes réalisations, alliant technique et créativité pour offrir des expériences digitales uniques.</p>
+        </div>
         <div class="skills spaceTop">
             <?php foreach ($tabSkills as $skill): ?>
             <div class="skill flex">
