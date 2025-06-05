@@ -1,7 +1,7 @@
 let currentIndex = 0;
 let isAutoMode = true;
 let interval;
-let delayChange = 3000; // Délai en ms
+let delayChange = 1500; // Délai en ms
 
 // Déclarées ici et non dans setupListeners car sinon carousel est innaccessible pour les autres fonctions
 let carousel;
