@@ -57,7 +57,6 @@ $resultats->closeCursor();
         </div>
        
     </div>
-
 <section id="projets" class="spaceTopPadding">
     <div class="description showCase">
         <p><span>Portfolio</span></p>
@@ -122,6 +121,10 @@ $resultats->closeCursor();
     </section>
 
     <section id="experiences" class="spaceTop flex">
+        <div class="showCase">
+            <h2 class="smallSpaceTop">Mes <span>Expériences</span></h2>
+            <p class="smallSpaceTop">Découvrez une sélection de mes réalisations, alliant technique et créativité pour offrir des expériences digitales uniques.</p>
+        </div>
         <div class="left spaceTop">
             <div class="filtre">
                 <label for="ordre">Ordre d'affichage</label>
@@ -129,9 +132,11 @@ $resultats->closeCursor();
                     <option value="croissant">Du plus ancien au plus récent</option>
                     <option value="decroissant">Du plus récent au plus ancien</option>
                 </select>
-            </div>
+            </div>é
+            <div>
             <ul>
             <?php foreach($tabXp as $xp): ?>
+                <li>
                 <?php
                 // Compétence pour cet expérience
                 $requete_xp_competences = 'SELECT c.titre FROM ExperiencesCompetences ec JOIN Competences c ON ec.id_competence = c.id_competence WHERE ec.id_experience = :id_experience';
@@ -140,7 +145,7 @@ $resultats->closeCursor();
                 $resultats_xp_competences->execute();
                 $tabXpCompetences = $resultats_xp_competences->fetchAll(PDO::FETCH_ASSOC);
                 ?>
-            <li>
+                
                 <p><?php echo $xp["poste"] ?> - <?php echo $xp["entreprise"] ?>
                     <?php ?><?php
                     if(isset($xp["fin"])){
@@ -154,9 +159,10 @@ $resultats->closeCursor();
             </li>
             <?php endforeach ?>
             </ul>
+            </div>
         </div>
         <div class="right">
-            <img src="img/xp_illustr.png" alt="Portfolio de Manya Théo, SAE203. Image d'illustration de la section expériences.">
+            <!---<img src="img/xp_illustr.png" alt="Portfolio de Manya Théo, SAE203. Image d'illustration de la section expériences."> !-->
         </div>
     </section>
     </main>
