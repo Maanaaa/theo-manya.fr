@@ -1,11 +1,11 @@
 /* VARIABLES CSS */
 :root {
-    --color-bg: #0b0b0b;
+    --color-bg: rgb(18 18 18);
     --color-text: rgb(207, 201, 201);
     --color-white: #ffffff;
     --color-highlight: rgb(255, 46, 136);
     --color-highlight-dark: rgba(255, 255, 255, 0.3);
-    --color-navbar: rgba(11, 11, 11, 0.988);
+    --color-navbar: rgb(18 18 18);
     --color-card-bg: aliceblue;
     --color-description-bg: #9cb9dc;
     --color-skill-bg: #3c3c3c;
@@ -78,8 +78,8 @@ h1 span {
   }
   50% {
     -webkit-text-stroke-color: rgb(241, 113, 169);
-    filter: brightness(1.4);
-    transform: scale(1.05);
+    filter: brightness(1.05);
+    transform: scale(1.01);
   }
   100% {
     -webkit-text-stroke-color: var(--color-highlight);
@@ -215,6 +215,7 @@ nav ul li a:hover{
 
 .intro a:hover {
     background-color: rgba(244, 194, 194, 0.8);
+    animation: boutonZoom 1s linear; 
 }
 
 /*----*/
@@ -395,7 +396,7 @@ nav ul li a:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10vh;
+    margin-top: 20vh;
 }
 
 .skills{
@@ -406,6 +407,7 @@ nav ul li a:hover{
     text-align: center;
     justify-content: center;
     gap: 5vh;
+    margin-top: 10vh;
 }
 
 
@@ -417,28 +419,27 @@ nav ul li a:hover{
     transition: transform 0.5s ease-out;
     background-color: rgba(21, 21, 21, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
+    padding: 2rem;
     position: relative;
     text-align: center;
     font-size: 0.8em;
 }
 
+.skill:hover{
+    transform: scale(1.1)
+}
 
 .skill progress{
     position: absolute;
-    bottom: 0;
+    bottom: 1em;
     width: 60%;
-}
-
-.skill:hover{
-    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px);
 }
 
 /* SECTION EXPERIENCES */
 #experiences {
     width: 80%;
     margin: 0 auto;
-    margin-top: 10vh;
+    margin-top: 15vh;
     display: flex;
     flex-direction: row;
     background: linear-gradient(to bottom right, var(--color-highlight), var(--color-highlight-dark));

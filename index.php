@@ -114,7 +114,6 @@ $resultats->closeCursor();
             <div class="skill flex">
                 <p><?php echo $skill["titre"]?></p>
                 <progress max="100" value="<?php echo $skill["maitrise"]?>"><?php echo $skill["maitrise"]?></progress>
-                <label for=""><?php echo " ".$skill["maitrise"]?>%</label>
             </div>
             <?php endforeach; ?>
         </div>
@@ -132,7 +131,7 @@ $resultats->closeCursor();
                     <option value="croissant">Du plus ancien au plus récent</option>
                     <option value="decroissant">Du plus récent au plus ancien</option>
                 </select>
-            </div>é
+            </div>
             <div>
             <ul>
             <?php foreach($tabXp as $xp): ?>
@@ -145,7 +144,6 @@ $resultats->closeCursor();
                 $resultats_xp_competences->execute();
                 $tabXpCompetences = $resultats_xp_competences->fetchAll(PDO::FETCH_ASSOC);
                 ?>
-                
                 <p><?php echo $xp["poste"] ?> - <?php echo $xp["entreprise"] ?>
                     <?php ?><?php
                     if(isset($xp["fin"])){

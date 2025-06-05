@@ -117,6 +117,4 @@ function trier(order){
     }
 }
 
-
-
 window.addEventListener('load', setupListeners);

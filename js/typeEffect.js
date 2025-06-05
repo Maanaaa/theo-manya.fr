@@ -1,5 +1,5 @@
 let toType = ['Creative', 'Developer', '<br><span>','&', 'Digital', 'Designer', '</span>'];
-let delay = 150 // Délai en ms
+let delay = 100; // Délai en ms
 
 function typeEffect(element, content, delay){
     let i = 0;
