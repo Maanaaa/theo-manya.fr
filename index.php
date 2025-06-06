@@ -103,21 +103,38 @@ $resultats->closeCursor();
 
     </div>
 </section>
-    <section id="skills" class="spaceTop">
-        <div class="description showCase">
-            <p><span>Expertise</span></p>
-            <h2 class="smallSpaceTop">Mes <span>Compétences</span></h2>    
-            <p class="smallSpaceTop">Découvrez une sélection de mes réalisations, alliant technique et créativité pour offrir des expériences digitales uniques.</p>
+<section id="skills" class="spaceTop">
+    <div class="description showCase">
+        <p><span>Expertise</span></p>
+        <h2 class="smallSpaceTop">Mes <span>Compétences</span></h2>
+        <p class="smallSpaceTop">Découvrez une sélection de mes réalisations, alliant technique et créativité pour offrir des expériences digitales uniques.</p>
+    </div>
+    <div class="skills spaceTop">
+        <?php
+        $svgs = [
+            '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>',
+            '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5-3 3-2-2"/></svg>',
+            '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 8v4M12 8v4M16 8v4"/></svg>',
+            '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3H1v20h22V3zM12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/></svg>',
+            '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+            '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M3 10h18M3 6h18"/></svg>',
+            '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 6v6l4 2"/></svg>',
+            '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>'
+        ];
+
+        $index = 0;
+        foreach ($tabSkills as $skill): ?>
+        <div class="skill flex">
+            <?php echo $svgs[$index % count($svgs)]; ?>
+            <p><?php echo $skill["titre"]; ?></p>
+            <progress max="100" value="<?php echo $skill["maitrise"]; ?>"><?php echo $skill["maitrise"]; ?></progress>
         </div>
-        <div class="skills spaceTop">
-            <?php foreach ($tabSkills as $skill): ?>
-            <div class="skill flex">
-                <p><?php echo $skill["titre"]?></p>
-                <progress max="100" value="<?php echo $skill["maitrise"]?>"><?php echo $skill["maitrise"]?></progress>
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </section>
+        <?php
+        $index++;
+        endforeach; ?>
+    </div>
+</section>
+
 
     <section id="experiences" class="spaceTop flex">
         <div class="showCase">
@@ -144,6 +161,7 @@ $resultats->closeCursor();
                 $resultats_xp_competences->execute();
                 $tabXpCompetences = $resultats_xp_competences->fetchAll(PDO::FETCH_ASSOC);
                 ?>
+                
                 <p><?php echo $xp["poste"] ?> - <?php echo $xp["entreprise"] ?>
                     <?php ?><?php
                     if(isset($xp["fin"])){

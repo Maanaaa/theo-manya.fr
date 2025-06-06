@@ -110,6 +110,12 @@ h2 span,
 span {
     text-transform: uppercase;
     color: var(--color-highlight);
+    
+}
+
+#experiences h2 span{
+    color: #0b0b0b00;
+    -webkit-text-stroke: 1px white;
 }
 
 /* ESPACEMENTS */
@@ -254,7 +260,7 @@ nav ul li a:hover{
     gap: 20px;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 70%;
     background-color: var(--color-navbar);
     color: var(--color-white);
 }
@@ -269,7 +275,7 @@ nav ul li a:hover{
 
 #projets .card img {
     width: 100%;
-    height: 60vh;
+    height: 80vh;
 }
 
 #projets .card .skill {
@@ -333,7 +339,7 @@ nav ul li a:hover{
 .carousel-container {
     position: relative;
     overflow: hidden;
-    width: 60%;
+    width: 70%; 
     margin: 0 auto;
 }
 
@@ -411,27 +417,42 @@ nav ul li a:hover{
 }
 
 
-.skill{
+.skill {
     display: flex;
     flex-direction: row;
+    border-radius: var(--radius-medium);
+    border: 1px solid #3b82f64d;
     justify-content: center;
     width: 20%;
     transition: transform 0.5s ease-out;
     background-color: rgba(21, 21, 21, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 2rem;
+    border: 1px solid #3b82f64d;
+    padding: 1rem; 
     position: relative;
     text-align: center;
     font-size: 0.8em;
+    background-image: linear-gradient(to bottom right, #06b6d433, #3b82f633);
+    align-items: center;
+    gap: 0.5em; 
+    margin-bottom: 1rem;
+    padding-bottom: 4vh;
 }
 
 .skill:hover{
-    transform: scale(1.1)
+    background-image: linear-gradient(to bottom right, #3b82f633, #06b6d433);
+}
+
+.skill svg{
+    background-color: #ffffff0d;
+    padding: 12px;
+    border-color: #262223;
+    border-radius: 12px;
+    color:rgb(96 165 250);
 }
 
 .skill progress{
     position: absolute;
-    bottom: 1em;
+    bottom: 1vh;
     width: 60%;
 }
 
@@ -453,6 +474,11 @@ nav ul li a:hover{
 #experiences:hover{
     width: 100%;
     height: 100%;
+    
+}
+
+#experiences li:hover{
+    background-color: rgba(51, 50, 50, 0.3);
 }
 
 
@@ -513,6 +539,8 @@ nav ul li a:hover{
     border-radius: 8px;
     display: flex;
     flex-direction: column;
+    transition: all 0.5s ease-in-out;
+    border: 1px solid #ffffff1a;
 }
 
 #experiences li p {
@@ -529,4 +557,129 @@ nav ul li a:hover{
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+}
+
+/* RESPONSIVE */
+
+/* Tablettes + petits écrans */
+@media (max-width: 1024px) {
+    /* Header et navigation */
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Intro */
+    .intro p {
+        width: 80%;
+    }
+
+    /* Projets */
+    .carousel-container {
+        width: 90%;
+    }
+
+    /* Compétences */
+    .skills {
+        width: 90%;
+        gap: 3vh;
+    }
+
+    .skill {
+        width: 80%;
+    }
+
+    /* Expériences */
+    #experiences {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    #experiences .left,
+    #experiences .right {
+        width: 100%;
+    }
+
+    #experiences .showCase p {
+        width: 90%;
+    }
+}
+
+/* Téléphones et + petit */
+@media (max-width: 768px) {
+    /* Texte */
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    /* Intro */
+    .intro p {
+        width: 90%;
+    }
+
+    /* Compétences */
+    .skills {
+        flex-direction: column;
+    }
+
+    .skill {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .skill progress {
+        position: static;
+        width: 80%;
+        margin-top: 10px;
+    }
+
+    /* Expériences */
+    #experiences li {
+        padding: 10px;
+    }
+
+    /* Boutons */
+    .intro a {
+        padding: 10px 20px;
+        font-size: 0.8em;
+    }
+
+    .controlButtons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #toggleMode, #prevBtn, #nextBtn {
+        padding: 8px 12px;
+        font-size: 0.8em;
+    }
+}
+
+
+
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }

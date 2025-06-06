@@ -36,7 +36,7 @@ function getEndYear(liste) {
     let text = dateElem.textContent;
     if (!text) text = ""; // Si le if fait a qu'une instruction, pas besoin d'ouvrir les {} on peux le faire sur la même ligne
 
-    text = text.replace(/[()]/g, '').trim(); // enlever parenthèses
+    text = text.replace(/[()@]/g, '').trim(); // enlever parenthèses
     // https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Regular_expressions#classes_de_caractères
     // https://www.w3schools.com/jsref/jsref_replace.asp
 
