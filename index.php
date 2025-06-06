@@ -95,6 +95,11 @@ $resultats->closeCursor();
                 </div>
             <?php endforeach; ?>
         </div>
+        <div class="cardNumber">
+            <?php foreach($tabProjets as $i => $projet): ?>
+                <div class="bullet"></div>
+            <?php endforeach ?>
+        </div>
         <div class="controlButtons">
             <button id="toggleMode">Mode Manuel</button>
             <button id="prevBtn"><</button>
@@ -134,8 +139,6 @@ $resultats->closeCursor();
         endforeach; ?>
     </div>
 </section>
-
-
     <section id="experiences" class="spaceTop flex">
         <div class="showCase">
             <h2 class="smallSpaceTop">Mes <span>Expériences</span></h2>

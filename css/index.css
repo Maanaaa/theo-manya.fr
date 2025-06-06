@@ -270,8 +270,28 @@ nav ul li a:hover{
     position: relative;
     border-radius: 12px;
     border: 0.5px solid var(--color-highlight);
-
+    text-align: center;
 }
+
+#projets .cardNumber {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+#projets .cardNumber .bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#projets .cardNumber div.active { 
+    background-color: rgb(255, 46, 136); 
+}
+
 
 #projets .card img {
     width: 100%;
