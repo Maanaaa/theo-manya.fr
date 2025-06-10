@@ -1,76 +1,94 @@
-let currentIndex = 0;
-let isAutoMode = true;
-let interval;
-let delayChange = 3500; // Délai en ms
+let currentIndexTM = 0;
+let isAutoModeTM = true;
+let intervalTM;
+let delayChangeTM = 3500; // Délai en ms
 
 // Déclarées ici et non dans setupListeners car sinon carousel est inaccessible pour les autres fonctions
-let carousel;
-let cards;
-let cardNumberBullet;
+let carouselTM;
+let cardsTM;
+let cardNumberBulletTM;
 
+/* updateCarousel : met à jour le décalage du carousel selon l’index courant.
+ * @return {}
+ */
 function updateCarousel() {
-    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    carouselTM.style.transform = `translateX(-${currentIndexTM * 100}%)`;
     updateBullet();
 }
 
+/* updateBullet : met à jour l’état des bullets en fonction la carte actuellement affichée.
+*@return {}
+*/
 function updateBullet() {
-    for (let i = 0; i < cardNumberBullet.length; i++) {
-        if (i === currentIndex) {
-            cardNumberBullet[i].style.backgroundColor = 'rgb(255, 46, 136)'; // Rose
+    for (let iTM = 0; iTM < cardNumberBulletTM.length; iTM++) {
+        if (iTM === currentIndexTM) {
+            cardNumberBulletTM[iTM].style.backgroundColor = 'rgb(255, 46, 136)'; // Rose
         } else {
-            cardNumberBullet[i].style.backgroundColor = '#ccc'; // Gris
+            cardNumberBulletTM[iTM].style.backgroundColor = '#ccc'; // Gris
         }
     }
 }
 
+/* nextCard : passe à la carte suivante du carousel.
+*@return {}
+*/
 function nextCard() {
-    currentIndex = (currentIndex + 1) % cards.length;
+    currentIndexTM = (currentIndexTM + 1) % cardsTM.length;
     updateCarousel();
 }
 
+/* startAutoMode : démarre le défilement automatique du caroussel
+*@return {}
+*/
 function startAutoMode() {
-    interval = setInterval(nextCard, delayChange); // Change de carte toutes les 3 secondes
+    intervalTM = setInterval(nextCard, delayChangeTM); // Change de carte toutes les 3 secondes
 }
 
+/* stopAutoMode : arrête le défilement automatique.
+*@return {}
+*/
 function stopAutoMode() {
-    clearInterval(interval);
+    clearInterval(intervalTM);
 }
 
+/* setupListeners : initialise les écouteurs d’évènements et les éléments du DOM nécessaires pour que le carousel marche.
+*@return {}
+*/
 function setupListeners() {
-    carousel = document.querySelector('.carousel');
-    cards = document.querySelectorAll('.card');
-    cardNumberBullet = document.querySelectorAll('.bullet'); // Utilisation de querySelectorAll
+    carouselTM = document.querySelector('.carousel');
+    cardsTM = document.querySelectorAll('.card');
+    cardNumberBulletTM = document.querySelectorAll('.bullet'); // Utilisation de querySelectorAll
 
-    let toggleButton = document.getElementById('toggleMode');
-    let prevButton = document.getElementById('prevBtn');
-    let nextButton = document.getElementById('nextBtn');
+    let toggleButtonTM = document.getElementById('toggleMode');
+    let prevButtonTM = document.getElementById('prevBtn');
+    let nextButtonTM = document.getElementById('nextBtn');
 
-    if (toggleButton && prevButton && nextButton) {
-        toggleButton.addEventListener('click', function() {
-            isAutoMode = !isAutoMode; // Égal à l'inverse de l'état actuel de isAutoMode
-            if (isAutoMode == true) {
-                toggleButton.textContent = 'Mode Manuel';
+    if (toggleButtonTM && prevButtonTM && nextButtonTM) {
+        toggleButtonTM.addEventListener('click', function() {
+            isAutoModeTM = !isAutoModeTM; // Égal à l'inverse de l'état actuel de isAutoModeTM
+            if (isAutoModeTM == true) {
+                toggleButtonTM.textContent = 'Mode Manuel';
                 startAutoMode();
             } else {
-                toggleButton.textContent = 'Mode Auto';
+                toggleButtonTM.textContent = 'Mode Auto';
                 stopAutoMode();
             }
         });
 
-        prevButton.addEventListener('click', function() {
-            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        prevButtonTM.addEventListener('click', function() {
+            currentIndexTM = (currentIndexTM - 1 + cardsTM.length) % cardsTM.length;
             updateCarousel();
         });
 
-        nextButton.addEventListener('click', function() {
+        nextButtonTM.addEventListener('click', function() {
             nextCard();
         });
     }
 
     // Points de navigation
-    for (let i = 0; i < cardNumberBullet.length; i++) {
-        cardNumberBullet[i].addEventListener('click', function() {
-            currentIndex = i;
+    for (let iTM = 0; iTM < cardNumberBulletTM.length; iTM++) {
+        cardNumberBulletTM[iTM].addEventListener('click', function() {
+            currentIndexTM = iTM;
             updateCarousel(); // Correction de l'appel de la fonction
         });
     }

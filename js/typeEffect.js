@@ -1,26 +1,34 @@
-let toType = ['Creative', 'Developer', '<br><span>','&', 'Digital', 'Designer', '</span>'];
-let delay = 100; // Délai en ms
+let toTypeTM = ['Creative', 'Developer', '<br><span>', '&', 'Digital', 'Designer', '</span>'];
+let delayTM = 100; // Délai en ms
 
-function typeEffect(element, content, delay){
-    let i = 0;
-    let textContent = ""; // Stocker le texte en cours de frappe
-    let interval = setInterval(() => { // Fonction intervale : https://developer.mozilla.org/en-US/docs/Web/API/Window/setInterval
-        if(i < content.length){
+/* typeEffect : produit un effet de "frappe" lettre par lettre sur un élément donné avec du contenu et un délai choisi.
+ * @param {HTMLElement} elementTM - L'élément DOM où l'effet de "frappe" sera appliqué.
+ * @param {string} contentTM - Le texte à écrire.
+ * @param {number} delayTM - Le délai en millisecondes entre chaque caractère écrit.
+ */
+function typeEffect(elementTM, contentTM, delayTM) {
+    let iTM = 0;
+    let textContentTM = ""; // Stocker le texte en cours de frappe
+    let intervalTM = setInterval(() => { // Fonction intervale : https://developer.mozilla.org/en-US/docs/Web/API/Window/setInterval
+        if (iTM < contentTM.length) {
             // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
-            textContent = textContent+content.charAt(i); // Ajouter le caractère 
-            element.innerHTML = textContent; // Mettre à jour le contenu
-            i++;
-        }else{
-            clearInterval(interval); // Animation terminée, remettre à zéro l'intervale
+            textContentTM = textContentTM + contentTM.charAt(iTM); // Ajouter le caractère
+            elementTM.innerHTML = textContentTM; // Mettre à jour le contenu
+            iTM++;
+        } else {
+            clearInterval(intervalTM); // Animation terminée, remettre à zéro l'intervale
         }
-    }, delay);
+    }, delayTM);
     // https://developer.mozilla.org/en-US/docs/Web/API/Window/setInterval
 }
 
-function setupListeners(){
-    let selector = document.querySelector(".typingEffect");
-    let text = toType.join(" ");
-    typeEffect(selector,text,delay);
+/* setupListeners : initialise les écouteurs d'événements pour l'effet de frappe.
+ * Sélectionne la classe "typingEffect" et applique l'effet de "frappe" au chargement de la page.
+ */
+function setupListeners() {
+    let selectorTM = document.querySelector(".typingEffect");
+    let textTM = toTypeTM.join(" ");
+    typeEffect(selectorTM, textTM, delayTM);
 }
 
 window.addEventListener('load', setupListeners);

@@ -1,4 +1,7 @@
-/* VARIABLES CSS */
+/* VARIABLES CSS -->
+ https://www.youtube.com/watch?v=pi-jnnNFTiQ 
+ https://developer.mozilla.org/fr/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties */
+
 :root {
     --color-bg: rgb(18 18 18);
     --color-text: rgb(207, 201, 201);
@@ -22,7 +25,7 @@
     --space-medium: 5vh;
 }
 
-/* RESET + BASE */
+/* BASIQUES */
 * {
     margin: 0;
     padding: 0;
@@ -68,8 +71,8 @@ h1 span {
 
 @keyframes brillance {
     /* 
-    Obligé d'utiliser les %, car en utilisant seulement "from" et "to"
-    ça faisait un effet de "cassure" à la fin de l'animation, ce qui la rendait moins belle.
+    Obligé d'utiliser les % (je crois), car en utilisant seulement "from" et "to"
+    ça faisait un effet de "cassure" à la fin de l'animation, ce qui la rendait moins belle. 
     */
 
   0% {
@@ -132,7 +135,7 @@ span {
     padding-top: var(--space-small);
 }
 
-/* FLEX UTILE */
+/* FLEX */
 .flex {
     display: flex;
 }
