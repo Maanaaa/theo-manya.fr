@@ -57,7 +57,6 @@ $resultats->closeCursor();
             <p>Passionné par le développement, le design et les interfaces modernes. Je crée des expériences digitales uniques qui allient technique et créativité.</p>
             <a href="#projets" class="spaceTop">Voir mes projets</a>
         </div>
-
     </div>
     <section id="projets" class="spaceTopPadding">
         <div class="description showCase">
