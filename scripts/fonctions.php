@@ -4,6 +4,8 @@ function uploadFile($file, $content_dir, $allowed_extensions, $file_max_size, $c
     if (isset($file["tmp_name"])) {
         $tmp_file = $file["tmp_name"];
 
+
+        
         // Vérifier si le fichier a été téléchargé correctement
         if (!is_uploaded_file($tmp_file)) {
             echo "Fichier non trouvé";
