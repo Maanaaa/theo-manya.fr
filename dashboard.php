@@ -9,6 +9,7 @@ $resultats = $connection->query($requete);
 $tabProjets = $resultats->fetchAll(PDO::FETCH_ASSOC);
 $resultats->closeCursor();
 
+
 // Compétences
 $requete = 'SELECT id_competence, titre, maitrise FROM Competences';
 $resultats = $connection->query($requete);
