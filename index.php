@@ -64,7 +64,9 @@ $resultats->closeCursor();
             <h2 class="smallSpaceTop">Mes <span>Projets</span></h2>
             <p class="smallSpaceTop">Découvrez une sélection de mes réalisations, alliant technique et créativité pour offrir des expériences digitales uniques.</p>
         </div>
-        <div class="carousel-container">
+
+        <!-- Ajout d’ARIA très léger pour l’accessibilité, sans changer ta structure -->
+        <div class="carousel-container" aria-label="Mes projets">
             <div class="carousel spaceTop">
                 <div class="decoration-haut"></div>
                 <?php foreach ($tabProjets as $index => $projet): ?>
@@ -96,11 +98,14 @@ $resultats->closeCursor();
                     </div>
                 <?php endforeach; ?>
             </div>
-            <div class="cardNumber">
+
+            <div class="cardNumber" aria-label="Navigation des projets">
                 <?php foreach ($tabProjets as $i => $projet): ?>
-                    <div class="bullet"></div>
+                    <!-- tabindex pour navigation clavier ; pas d’impact visuel -->
+                    <div class="bullet" tabindex="0"></div>
                 <?php endforeach ?>
             </div>
+
             <div class="controlButtons">
                 <button id="toggleMode">Mode Manuel</button>
                 <button id="prevBtn"><</button>

@@ -23,8 +23,12 @@ function updateBullet() {
     for (let iTM = 0; iTM < cardNumberBulletTM.length; iTM++) {
         if (iTM === currentIndexTM) {
             cardNumberBulletTM[iTM].style.backgroundColor = 'rgb(255, 46, 136)'; // Rose
+            cardNumberBulletTM[iTM].classList.add('active'); // pour CSS si besoin
+            cardNumberBulletTM[iTM].setAttribute('aria-selected', 'true');
         } else {
             cardNumberBulletTM[iTM].style.backgroundColor = '#ccc'; // Gris
+            cardNumberBulletTM[iTM].classList.remove('active');
+            cardNumberBulletTM[iTM].setAttribute('aria-selected', 'false');
         }
     }
 }
@@ -41,7 +45,8 @@ function nextCard() {
 *@return {}
 */
 function startAutoMode() {
-    intervalTM = setInterval(nextCard, delayChangeTM); // Change de carte toutes les 3 secondes
+    stopAutoMode(); // éviter plusieurs intervalles
+    intervalTM = setInterval(nextCard, delayChangeTM); // Change de carte toutes les 3.5 secondes
 }
 
 /* stopAutoMode : arrête le défilement automatique.
@@ -56,8 +61,8 @@ function stopAutoMode() {
 */
 function setupListeners() {
     carouselTM = document.querySelector('.carousel');
-    cardsTM = document.querySelectorAll('.card');
-    cardNumberBulletTM = document.querySelectorAll('.bullet'); // Utilisation de querySelectorAll
+    cardsTM = document.querySelectorAll('.carousel .card'); // plus précis
+    cardNumberBulletTM = document.querySelectorAll('.cardNumber .bullet'); // Utilisation de querySelectorAll
 
     let toggleButtonTM = document.getElementById('toggleMode');
     let prevButtonTM = document.getElementById('prevBtn');
@@ -78,10 +83,12 @@ function setupListeners() {
         prevButtonTM.addEventListener('click', function() {
             currentIndexTM = (currentIndexTM - 1 + cardsTM.length) % cardsTM.length;
             updateCarousel();
+            if (isAutoModeTM) startAutoMode(); // reset le timer
         });
 
         nextButtonTM.addEventListener('click', function() {
             nextCard();
+            if (isAutoModeTM) startAutoMode();
         });
     }
 
@@ -90,11 +97,36 @@ function setupListeners() {
         cardNumberBulletTM[iTM].addEventListener('click', function() {
             currentIndexTM = iTM;
             updateCarousel(); // Correction de l'appel de la fonction
+            if (isAutoModeTM) startAutoMode();
+        });
+
+        // Accès clavier simple (Enter, Espace, flèches)
+        cardNumberBulletTM[iTM].addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                cardNumberBulletTM[iTM].click();
+            }
+            if (e.key === 'ArrowLeft') {
+                prevButtonTM?.click();
+            }
+            if (e.key === 'ArrowRight') {
+                nextButtonTM?.click();
+            }
         });
     }
 
+    // Pause au survol (desktop)
+    cardsTM.forEach(function(cardTM) {
+        cardTM.addEventListener('mouseenter', function() {
+            if (isAutoModeTM) stopAutoMode();
+        });
+        cardTM.addEventListener('mouseleave', function() {
+            if (isAutoModeTM) startAutoMode();
+        });
+
     startAutoMode();
     updateBullet();
-}
+    });
 
+}
 window.addEventListener('load', setupListeners);
