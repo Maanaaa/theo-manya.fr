@@ -138,7 +138,6 @@ $resultats->closeCursor();
                 <div class="skill flex">
                     <?php echo $svgs[$index % count($svgs)]; ?>
                     <p><?php echo $skill["titre"]; ?></p>
-                    <progress max="100" value="<?php echo $skill["maitrise"]; ?>"><?php echo $skill["maitrise"]; ?></progress>
                 </div>
             <?php
                 $index++;
