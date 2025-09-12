@@ -35,6 +35,7 @@ $resultats->closeCursor();
     <script src="js/typeEffect.js"></script>
     <script src="js/caroussel.js"></script>
     <script src="js/filter.js"></script>
+    <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -132,7 +133,7 @@ $resultats->closeCursor();
 
             $index = 0;
             foreach ($tabSkills as $skill): ?>
-                <div class="skill flex">
+                <div data-tilt class="skill flex">
                     <?php echo $svgs[$index % count($svgs)]; ?>
                     <p><?php echo $skill["titre"]; ?></p>
                 </div>
@@ -190,5 +191,6 @@ $resultats->closeCursor();
             Développé avec ❤️ et un soupçon de café.
         </p>
     </footer>
+    <script src="js/vanilla-tilt.min.js" ></script>
 </body>
 </html>
