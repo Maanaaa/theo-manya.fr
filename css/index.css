@@ -540,21 +540,52 @@ nav ul li a:hover { color: var(--color-highlight); }
     .intro p { width: 90%; }
 
     /* compétences */
-    .skills { flex-direction: column; }
+    .skills { flex-direction: column; width: 92%; margin-top: 6vh; }
     .skill { width: 100%; flex-direction: column; }
     .skill progress { position: static; width: 80%; margin-top: 10px; }
 
     /* expériences */
-    #experiences li { padding: 10px; }
+    #experiences { width: 92%; padding: 16px; border-radius: 14px; }
+    #experiences li { padding: 12px; }
 
     /* boutons */
     .intro a { padding: 10px 20px; font-size: 0.8em; }
 
-    .controlButtons {
-        flex-direction: column;
-        gap: 10px;
+    .controlButtons { display: none; }
+    #projets .cardNumber { display: none; }
+
+    /* projets -> liste */
+    .carousel-container { width: 92%; overflow: visible; }
+    .carousel { display: block; transform: none !important; }
+    .carousel .card { padding: 8px; margin-bottom: 16px; }
+
+    /* image + contenu lisible */
+    #projets .card img { aspect-ratio: 16/9; border-radius: 12px; }
+    #projets .card::after { background: linear-gradient(to top, rgba(0,0,0,.12), rgba(0,0,0,0)); }
+    #projets .card:hover img { transform: none; filter: none; }
+
+    /* description statique */
+    #projets .card .description {
+        position: static;
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        background: transparent;
+        height: auto;
+        padding: 10px 6px 0;
+        text-shadow: none;
+        border-radius: 0;
     }
-    #toggleMode, #prevBtn, #nextBtn { padding: 8px 12px; font-size: 0.8em; }
+    #projets .card .description p { text-align: left; }
+
+    #projets .card .bottom { padding: 8px 4px 0; }
+    #projets .card .more-info {
+        position: static;
+        display: inline-block;
+        margin: 10px auto 4px;
+        font-size: .9rem;
+        padding: 8px 14px;
+    }
 }
 
 img { max-width: 100%; height: auto; display: block; }

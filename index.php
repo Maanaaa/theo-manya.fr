@@ -65,13 +65,11 @@ $resultats->closeCursor();
             <p class="smallSpaceTop">Découvrez une sélection de mes réalisations, alliant technique et créativité pour offrir des expériences digitales uniques.</p>
         </div>
 
-        <!-- Ajout d’ARIA très léger pour l’accessibilité, sans changer ta structure -->
         <div class="carousel-container" aria-label="Mes projets">
             <div class="carousel spaceTop">
                 <div class="decoration-haut"></div>
                 <?php foreach ($tabProjets as $index => $projet): ?>
                     <?php
-                    // Récupérer les compétences pour ce projet
                     $requete_competences = 'SELECT c.titre FROM ProjetCompetences pc JOIN Competences c ON pc.id_competence = c.id_competence WHERE pc.id_projet = :id_projet';
                     $resultats_competences = $connection->prepare($requete_competences);
                     $resultats_competences->bindParam(':id_projet', $projet['id_projet']);
@@ -101,7 +99,6 @@ $resultats->closeCursor();
 
             <div class="cardNumber" aria-label="Navigation des projets">
                 <?php foreach ($tabProjets as $i => $projet): ?>
-                    <!-- tabindex pour navigation clavier ; pas d’impact visuel -->
                     <div class="bullet" tabindex="0"></div>
                 <?php endforeach ?>
             </div>
@@ -162,7 +159,6 @@ $resultats->closeCursor();
                     <?php foreach ($tabXp as $xp): ?>
                         <li>
                             <?php
-                            // Compétence pour cet expérience
                             $requete_xp_competences = 'SELECT c.titre FROM ExperiencesCompetences ec JOIN Competences c ON ec.id_competence = c.id_competence WHERE ec.id_experience = :id_experience';
                             $resultats_xp_competences = $connection->prepare($requete_xp_competences);
                             $resultats_xp_competences->bindParam(':id_experience', $xp['id_experience']);
@@ -185,7 +181,6 @@ $resultats->closeCursor();
             </div>
         </div>
         <div class="right">
-            <!---<img src="img/xp_illustr.png" alt="Portfolio de Manya Théo, SAE203. Image d'illustration de la section expériences."> !-->
         </div>
     </section>
     </main>
