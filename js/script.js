@@ -1,14 +1,14 @@
 // Popup au clique sur un projet 
 function initPopup() {
-  const modal = document.getElementById('projet-modal');
+  let modal = document.getElementById('projet-modal');
   if (!modal) return;
 
-  const box   = modal.querySelector('.popup-box');
-  const img   = document.getElementById('popup-img');
-  const title = document.getElementById('popup-title');
-  const date  = document.getElementById('popup-date');
-  const desc  = document.getElementById('popup-desc');
-  const cta   = document.getElementById('popup-cta');
+  let box   = modal.querySelector('.popup-box');
+  let img   = document.getElementById('popup-img');
+  let title = document.getElementById('popup-title');
+  let date  = document.getElementById('popup-date');
+  let desc  = document.getElementById('popup-desc');
+  let cta   = document.getElementById('popup-cta');
 
   let lastFocus = null;
 
@@ -16,7 +16,7 @@ function initPopup() {
     lastFocus = document.activeElement;
     modal.setAttribute('aria-hidden','false');
     document.body.classList.add('no-scroll');
-    const closeBtn = modal.querySelector('.popup-close');
+    let closeBtn = modal.querySelector('.popup-close');
     if (closeBtn) closeBtn.focus();
     document.addEventListener('keydown', onKeydown);
   }
@@ -36,12 +36,12 @@ function initPopup() {
   }
 
   function trapFocus(e){
-    const focusables = box.querySelectorAll(
+    let focusables = box.querySelectorAll(
       'a[href],button:not([disabled]),textarea,input,select,[tabindex]:not([tabindex="-1"])'
     );
     if (!focusables.length) return;
-    const first = focusables[0];
-    const last  = focusables[focusables.length - 1];
+    let first = focusables[0];
+    let last  = focusables[focusables.length - 1];
     if (e.shiftKey && document.activeElement === first) {
       last.focus();
       e.preventDefault();
@@ -64,11 +64,11 @@ function initPopup() {
     card.addEventListener('click', (e) => {
       if (e.target.closest('.more-info')) return;
 
-      const t  = card.querySelector('.bottom p:first-child')?.innerText?.trim() || '';
-      const d  = card.querySelector('.bottom p:last-child')?.innerText?.trim() || '';
-      const i  = card.querySelector('img')?.src || '';
-      const ds = card.querySelector('.description p')?.innerText?.trim() || '';
-      const l  = card.querySelector('.more-info')?.getAttribute('href');
+      let t  = card.querySelector('.bottom p:first-child')?.innerText?.trim() || '';
+      let d  = card.querySelector('.bottom p:last-child')?.innerText?.trim() || '';
+      let i  = card.querySelector('img')?.src || '';
+      let ds = card.querySelector('.description p')?.innerText?.trim() || '';
+      let l  = card.querySelector('.more-info')?.getAttribute('href');
 
       title.textContent = t;
       date.textContent  = d;

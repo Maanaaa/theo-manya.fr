@@ -283,14 +283,18 @@ nav ul li a:hover {
     width: 80%;
     position: relative;
     border-radius: 12px;
-    border: 0.5px solid var(--color-highlight);
+    /* soft, sans écrasements plus bas */
+    background: rgba(255, 255, 255, .02);
+    border: 1px solid #ffffff1a;
     text-align: center;
-    box-shadow: 0 0 0 1px rgba(255, 46, 136, .25) inset, 0 12px 40px rgba(0, 0, 0, .35);
-    transition: box-shadow .3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .28);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
 }
 
 #projets .card:hover {
-    box-shadow: 0 0 0 2px rgba(255, 46, 136, .55) inset, 0 18px 60px rgba(0, 0, 0, .45);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .34);
 }
 
 #projets .cardNumber {
@@ -317,13 +321,15 @@ nav ul li a:hover {
     aspect-ratio: 16/9;
     object-fit: cover;
     height: auto;
-    border-radius: 12px;
-    transition: transform .35s ease, filter .35s ease;
+    border-radius: 10px;
+    outline: 1px solid #ffffff12;
+    outline-offset: -1px;
+    transition: transform .18s ease, filter .18s ease;
 }
 
 #projets .card:hover img {
-    transform: scale(1.02);
-    filter: brightness(.82) contrast(1.05) saturate(1.05);
+    transform: scale(1.01);
+    filter: brightness(.9) contrast(1.02);
 }
 
 /* scrim léger */
@@ -356,6 +362,10 @@ nav ul li a:hover {
     left: 8px;
     color: #fff;
     font-weight: 600;
+    /* soft */
+    background: rgba(255, 46, 136, .18);
+    border: 1px solid rgba(255, 255, 255, .12);
+    padding: 4px 10px;
 }
 
 /* overlay */
@@ -366,24 +376,29 @@ nav ul li a:hover {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 56px; /* remonté pour libérer le CTA */
     color: #fff;
-    padding: 16px;
+    padding: 12px 14px 14px;
     box-sizing: border-box;
     z-index: 10;
-    background: linear-gradient(to top, rgba(15, 15, 15, .72), rgba(15, 15, 15, .28));
+    background: linear-gradient(to top, rgba(15, 15, 15, .55), rgba(15, 15, 15, .12));
     border-radius: 0 0 12px 12px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, .55);
     transform: translateY(6px);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: clamp(120px, 20vh, 240px);
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: clamp(100px, 16vh, 200px);
 }
 
 #projets .card .description p {
     margin: 0;
-    line-height: 1.45;
+    line-height: 1.5;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* https://developer.mozilla.org/fr/docs/Web/CSS/line-clamp */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 #projets .card:hover .description {
@@ -394,27 +409,45 @@ nav ul li a:hover {
 }
 
 #projets .card .more-info {
-    position: absolute;
-    bottom: 14px;
-    right: 14px;
-    left: auto;
-    width: auto;
-    text-align: center;
-    z-index: 20;
-    padding: 6px 12px;
+    /* soft par défaut, statique pour rester visible */
+    position: static;
+    display: inline-block;
+    margin: 10px 0 2px;
+    padding: 9px 14px;
     box-sizing: border-box;
     color: #fff;
-    background: linear-gradient(180deg, #ff4b9a, #d81c6e);
+    background: transparent;
     border-radius: 999px;
     font-weight: 700;
-    font-size: .9rem;
-    box-shadow: 0 6px 18px rgba(255, 46, 136, .35);
+    font-size: .92rem;
+    border: 1px solid rgba(255, 46, 136, .35);
+    box-shadow: none;
+    text-align: center;
+}
+
+#projets .card .more-info:hover,
+#projets .card .more-info:active {
+    background: rgba(255, 46, 136, .12);
 }
 
 #projets .card .bottom {
     display: flex;
     justify-content: space-between;
     font-family: var(--font-title);
+    padding: 6px 2px 0;
+    align-items: baseline;
+    gap: 10px;
+}
+
+#projets .card .bottom p:first-child {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+#projets .card .bottom p:last-child {
+    opacity: .7;
+    font-size: .95rem;
 }
 
 /* cartes carrousel */
@@ -1039,4 +1072,11 @@ body.no-scroll {
     .popup-box {
         transition: none !important;
     }
+}
+
+/* Force le clic sur "En savoir plus" à ouvrir la popup 
+pointer-events: none; laisse le clic “traverser” le bouton pour atteindre la .card pour ouvrir la popup et non le lien :)*/
+@media (pointer: fine) {
+  #projets .card { cursor: pointer; }
+  #projets .card .more-info { pointer-events: none; }
 }

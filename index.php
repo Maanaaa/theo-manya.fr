@@ -188,7 +188,7 @@ $resultats->closeCursor();
         </div>
     </section>
 
-    <!-- Popup Projet (simple & accessible) -->
+    <!-- Popup Projet -->
     <div id="projet-modal" class="popup" aria-hidden="true" role="dialog" aria-modal="true">
       <div class="popup-overlay" data-close="popup"></div>
       <div class="popup-box" role="document">
