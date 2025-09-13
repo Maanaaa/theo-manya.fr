@@ -28,10 +28,13 @@ $resultats->closeCursor();
     <title>Théo Manya - Portfolio</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!-- CSS -->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,300,500,600,700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- JS -->
     <script src="js/typeEffect.js"></script>
     <script src="js/caroussel.js"></script>
     <script src="js/filter.js"></script>
@@ -106,8 +109,9 @@ $resultats->closeCursor();
 
             <div class="controlButtons">
                 <button id="toggleMode">Mode Manuel</button>
-                <button id="prevBtn"><</button>
-                <button id="nextBtn">></button>
+                <button id="prevBtn">
+                    << /button>
+                        <button id="nextBtn">></button>
             </div>
 
         </div>
@@ -121,7 +125,9 @@ $resultats->closeCursor();
         <div class="skills spaceTop">
             <?php
             $svgs = [
-                '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>',
+                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 8-4 4 4 4m8 0 4-4-4-4m-2-3-4 14"/>
+</svg>',
                 '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5-3 3-2-2"/></svg>',
                 '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 8v4M12 8v4M16 8v4"/></svg>',
                 '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3H1v20h22V3zM12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/></svg>',
@@ -191,6 +197,7 @@ $resultats->closeCursor();
             Développé avec ❤️ et un soupçon de café.
         </p>
     </footer>
-    <script src="js/vanilla-tilt.min.js" ></script>
+    <script src="js/vanilla-tilt.min.js"></script>
 </body>
+
 </html>
