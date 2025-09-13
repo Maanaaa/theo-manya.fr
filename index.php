@@ -35,10 +35,10 @@ $resultats->closeCursor();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="css/reset.css">
     <!-- JS -->
-    <script src="js/typeEffect.js"></script>
-    <script src="js/caroussel.js"></script>
-    <script src="js/filter.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/typeEffect.js" defer></script>
+    <script src="js/caroussel.js" defer></script>
+    <script src="js/filter.js" defer></script>
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
@@ -109,9 +109,8 @@ $resultats->closeCursor();
 
             <div class="controlButtons">
                 <button id="toggleMode">Mode Manuel</button>
-                <button id="prevBtn">
-                    << /button>
-                        <button id="nextBtn">></button>
+                <button id="prevBtn"><</button>
+                <button id="nextBtn">></button>
             </div>
 
         </div>
@@ -125,9 +124,7 @@ $resultats->closeCursor();
         <div class="skills spaceTop">
             <?php
             $svgs = [
-                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 8-4 4 4 4m8 0 4-4-4-4m-2-3-4 14"/>
-</svg>',
+                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 8-4 4 4 4m8 0 4-4-4-4m-2-3-4 14"/></svg>',
                 '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5-3 3-2-2"/></svg>',
                 '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 8v4M12 8v4M16 8v4"/></svg>',
                 '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3H1v20h22V3zM12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/></svg>',
@@ -174,7 +171,7 @@ $resultats->closeCursor();
                             ?>
 
                             <p><?php echo $xp["poste"] ?> - <?php echo $xp["entreprise"] ?>
-                                <?php ?><?php
+                                <?php
                                         if (isset($xp["fin"])) {
                                             echo "<p class='date'>(" . $xp["debut"] . " - " . $xp["fin"] . ")</p>";
                                         } else {
@@ -190,7 +187,30 @@ $resultats->closeCursor();
         <div class="right">
         </div>
     </section>
-    </main>
+
+    <!-- Popup Projet (simple & accessible) -->
+    <div id="projet-modal" class="popup" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="popup-overlay" data-close="popup"></div>
+      <div class="popup-box" role="document">
+        <button type="button" class="popup-close" aria-label="Fermer" data-close="popup">✕</button>
+
+        <div class="popup-media">
+          <img id="popup-img" src="" alt="">
+        </div>
+
+        <div class="popup-body">
+          <div class="popup-head">
+            <h3 id="popup-title" class="popup-title"></h3>
+            <time id="popup-date" class="popup-date"></time>
+          </div>
+
+          <p id="popup-desc" class="popup-desc"></p>
+
+          <a id="popup-cta" class="popup-cta" href="#" target="_blank" rel="noopener" hidden>En savoir plus</a>
+        </div>
+      </div>
+    </div>
+
     <footer style="margin-top: 4rem; padding: 2rem 1rem; text-align: center; background-color: #111; color: #fff;">
         <p style="font-family: 'Inter', sans-serif; font-weight: 300;">© <?php echo date("Y"); ?> Théo Manya. Tous droits réservés.</p>
         <p style="margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
@@ -199,5 +219,4 @@ $resultats->closeCursor();
     </footer>
     <script src="js/vanilla-tilt.min.js"></script>
 </body>
-
 </html>
