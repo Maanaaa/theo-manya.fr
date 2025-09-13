@@ -54,9 +54,6 @@ a {
     display: none !important;
 }
 
-/* Flowbite */
-
-
 /* TEXTES */
 p {
     color: var(--color-text);
@@ -170,7 +167,11 @@ header {
 
 }
 
-.menu-btn { display: none; } /* Flowbite, bouton burger apparaît que sur mobile */
+.menu-btn {
+    display: none;
+}
+
+/* Flowbite, bouton burger apparaît que sur mobile */
 
 
 nav {
@@ -812,43 +813,55 @@ nav ul li a:hover {
 
 /* Menu mobile flowbite, animations */
 @media (max-width: 1024px) {
-  /* état de base (menu fermé) forcer l'élément à exister pour l'animer */
-  #menu {
-    display: flex;            
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    padding-top: 12px;
 
-    /* animation */
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transition: max-height .28s ease, opacity .28s ease;
-  }
+    /* état de base (menu fermé) forcer l'élément à exister pour l'animer */
+    #menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        padding-top: 12px;
 
-  /* Flowbite ajoute/retire .hidden -> on anime */
-  #menu.hidden {
-    display: flex !important;   
-    max-height: 0;
-    opacity: 0;
-  }
+        /* animation */
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height .28s ease, opacity .28s ease;
+    }
 
-  /* aria-expanded="true" */
-  #menuBtn[aria-expanded="true"] + #menu {
-    max-height: 240px;    
-    opacity: 1;
-  }
+    /* Flowbite ajoute/retire .hidden -> on anime */
+    #menu.hidden {
+        display: flex !important;
+        max-height: 0;
+        opacity: 0;
+    }
 
-  /* anim de l’icône burger qui se transforme en croix */
-  .menu-icon,
-  .menu-icon::before,
-  .menu-icon::after {
-    transition: transform .25s ease, opacity .2s ease, top .25s ease, background .2s ease;
-  }
-  #menuBtn[aria-expanded="true"] .menu-icon { background: transparent; }
-  #menuBtn[aria-expanded="true"] .menu-icon::before { top: 0; transform: rotate(45deg); }
-  #menuBtn[aria-expanded="true"] .menu-icon::after  { top: 0; transform: rotate(-45deg); }
+    /* aria-expanded="true" */
+    #menuBtn[aria-expanded="true"]+#menu {
+        max-height: 240px;
+        opacity: 1;
+    }
+
+    /* anim de l’icône burger qui se transforme en croix */
+    .menu-icon,
+    .menu-icon::before,
+    .menu-icon::after {
+        transition: transform .25s ease, opacity .2s ease, top .25s ease, background .2s ease;
+    }
+
+    #menuBtn[aria-expanded="true"] .menu-icon {
+        background: transparent;
+    }
+
+    #menuBtn[aria-expanded="true"] .menu-icon::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    #menuBtn[aria-expanded="true"] .menu-icon::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
 }
 
 
@@ -1190,14 +1203,13 @@ body.no-scroll {
 
 /* Force le clic sur "En savoir plus" à ouvrir la popup 
 pointer-events: none; laisse le clic “traverser” le bouton pour atteindre la .card pour ouvrir la popup et non le lien :)*/
-@media (pointer: fine) {
-    #projets .card {
-        cursor: pointer;
-    }
 
-    #projets .card .more-info {
-        pointer-events: none;
-    }
+#projets .card {
+    cursor: pointer;
+}
+
+#projets .card .more-info {
+    pointer-events: none;
 }
 
 #projets .card .description p {
