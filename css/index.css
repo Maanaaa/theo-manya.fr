@@ -1080,3 +1080,10 @@ pointer-events: none; laisse le clic “traverser” le bouton pour atteindre la
   #projets .card { cursor: pointer; }
   #projets .card .more-info { pointer-events: none; }
 }
+
+#projets .card .description p{
+  display:-webkit-box;
+  -webkit-line-clamp:2; /* Limiter l'affichage des description de projet à 3 lignes */  
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
