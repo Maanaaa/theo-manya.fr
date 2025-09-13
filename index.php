@@ -109,8 +109,9 @@ $resultats->closeCursor();
 
             <div class="controlButtons">
                 <button id="toggleMode">Mode Manuel</button>
-                <button id="prevBtn"><</button>
-                <button id="nextBtn">></button>
+                <button id="prevBtn">
+                    << /button>
+                        <button id="nextBtn">></button>
             </div>
 
         </div>
@@ -125,12 +126,30 @@ $resultats->closeCursor();
             <?php
             $svgs = [
                 '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 8-4 4 4 4m8 0 4-4-4-4m-2-3-4 14"/></svg>',
-                '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5-3 3-2-2"/></svg>',
-                '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 8v4M12 8v4M16 8v4"/></svg>',
-                '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3H1v20h22V3zM12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/></svg>',
-                '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-                '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M3 10h18M3 6h18"/></svg>',
-                '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 6v6l4 2"/></svg>',
+                '<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+    <path d="M47,5v40L30.619,5H47z M17.762,36.579H25L28.429,45h7.238L25,18.801L17.762,36.579z M3,5v40L19.381,5H3z"></path>
+</svg>',
+                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"/>
+</svg>
+',
+                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M9 7V2.221a2 2 0 0 0-.5.365L4.586 6.5a2 2 0 0 0-.365.5H9Zm2 0V2h7a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Zm-2 4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H9Zm0 2h2v2H9v-2Zm7.965-.557a1 1 0 0 0-1.692-.72l-1.268 1.218a1 1 0 0 0-.308.721v.733a1 1 0 0 0 .37.776l1.267 1.032a1 1 0 0 0 1.631-.776v-2.984Z" clip-rule="evenodd"/>
+</svg>
+',
+                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
+</svg>
+',
+                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1M5 12h14M5 12a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1m-2 3h.01M14 15h.01M17 9h.01M14 9h.01"/>
+</svg>
+
+',
+                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 6c0 1.657-3.134 3-7 3S5 7.657 5 6m14 0c0-1.657-3.134-3-7-3S5 4.343 5 6m14 0v6M5 6v6m0 0c0 1.657 3.134 3 7 3s7-1.343 7-3M5 12v6c0 1.657 3.134 3 7 3s7-1.343 7-3v-6"/>
+</svg>
+',
                 '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>'
             ];
 
@@ -172,12 +191,12 @@ $resultats->closeCursor();
 
                             <p><?php echo $xp["poste"] ?> - <?php echo $xp["entreprise"] ?>
                                 <?php
-                                        if (isset($xp["fin"])) {
-                                            echo "<p class='date'>(" . $xp["debut"] . " - " . $xp["fin"] . ")</p>";
-                                        } else {
-                                            echo "(" . $xp["debut"] . " à aujourd'hui)";
-                                        }
-                                        ?>
+                                if (isset($xp["fin"])) {
+                                    echo "<p class='date'>(" . $xp["debut"] . " - " . $xp["fin"] . ")</p>";
+                                } else {
+                                    echo "(" . $xp["debut"] . " à aujourd'hui)";
+                                }
+                                ?>
                             <p></p>
                         </li>
                     <?php endforeach ?>
@@ -190,25 +209,25 @@ $resultats->closeCursor();
 
     <!-- Popup Projet -->
     <div id="projet-modal" class="popup" aria-hidden="true" role="dialog" aria-modal="true">
-      <div class="popup-overlay" data-close="popup"></div>
-      <div class="popup-box" role="document">
-        <button type="button" class="popup-close" aria-label="Fermer" data-close="popup">✕</button>
+        <div class="popup-overlay" data-close="popup"></div>
+        <div class="popup-box" role="document">
+            <button type="button" class="popup-close" aria-label="Fermer" data-close="popup">✕</button>
 
-        <div class="popup-media">
-          <img id="popup-img" src="" alt="">
+            <div class="popup-media">
+                <img id="popup-img" src="" alt="">
+            </div>
+
+            <div class="popup-body">
+                <div class="popup-head">
+                    <h3 id="popup-title" class="popup-title"></h3>
+                    <time id="popup-date" class="popup-date"></time>
+                </div>
+
+                <p id="popup-desc" class="popup-desc"></p>
+
+                <a id="popup-cta" class="popup-cta" href="#" target="_blank" rel="noopener" hidden>En savoir plus</a>
+            </div>
         </div>
-
-        <div class="popup-body">
-          <div class="popup-head">
-            <h3 id="popup-title" class="popup-title"></h3>
-            <time id="popup-date" class="popup-date"></time>
-          </div>
-
-          <p id="popup-desc" class="popup-desc"></p>
-
-          <a id="popup-cta" class="popup-cta" href="#" target="_blank" rel="noopener" hidden>En savoir plus</a>
-        </div>
-      </div>
     </div>
 
     <footer style="margin-top: 4rem; padding: 2rem 1rem; text-align: center; background-color: #111; color: #fff;">
@@ -219,4 +238,5 @@ $resultats->closeCursor();
     </footer>
     <script src="js/vanilla-tilt.min.js"></script>
 </body>
+
 </html>

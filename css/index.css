@@ -561,11 +561,14 @@ nav ul li a:hover {
 }
 
 .skill svg {
-    background-color: #ffffff0d;
-    padding: 12px;
-    border-color: #262223;
-    border-radius: 12px;
-    color: rgb(96 165 250);
+  box-sizing: content-box;   /* annule le border-box pour les SVG */
+  display: inline-block;
+  width: 20px;               
+  height: 20px;
+  padding: 12px;             
+  border-radius: 12px;       
+  background-color: #ffffff0d;
+  color: rgb(96 165 250);
 }
 
 .skill progress {
@@ -1083,7 +1086,7 @@ pointer-events: none; laisse le clic “traverser” le bouton pour atteindre la
 
 #projets .card .description p{
   display:-webkit-box;
-  -webkit-line-clamp:2; /* Limiter l'affichage des description de projet à 3 lignes */  
+  -webkit-line-clamp:2; /* Limiter l'affichage des descriptions de projet à 3 lignes */  
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
