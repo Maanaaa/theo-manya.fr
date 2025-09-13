@@ -38,6 +38,7 @@ $resultats->closeCursor();
     <script src="js/typeEffect.js" defer></script>
     <script src="js/caroussel.js" defer></script>
     <script src="js/filter.js" defer></script>
+    <script src="js/popup.js" defer></script>
     <script src="js/script.js" defer></script>
 </head>
 
@@ -47,13 +48,28 @@ $resultats->closeCursor();
             <div class="titre">
                 <p>Théo <span>MANYA</span></p>
             </div>
-            <ul class="flex">
+
+            <!-- bouton burger mobile -->
+            <button
+                id="menuBtn"
+                class="menu-btn"
+                type="button"
+                aria-label="Ouvrir le menu"
+                aria-controls="menu"
+                aria-expanded="false"
+                data-collapse-toggle="menu">
+                <span class="menu-icon"></span>
+            </button>
+
+            <!-- menu -->
+            <ul class="flex hidden" id="menu" aria-label="Menu de navigation">
                 <li><a href="#projets">Projets</a></li>
                 <li><a href="#skills">Compétences</a></li>
                 <li><a href="#experiences">Expériences</a></li>
             </ul>
         </nav>
     </header>
+
     <div class="intro">
         <!---<img src="img/header.png" alt="Portfolio de Manya Théo, SAE203. Image principale du header."> !-->
         <h1 class="typingEffect"></h1>
@@ -110,8 +126,9 @@ $resultats->closeCursor();
             <div class="controlButtons">
                 <button id="toggleMode">Mode Manuel</button>
                 <button id="prevBtn">
-                    << /button>
-                        <button id="nextBtn">></button>
+                    <
+                        <button id="nextBtn">>
+                </button>
             </div>
 
         </div>
@@ -237,6 +254,8 @@ $resultats->closeCursor();
         </p>
     </footer>
     <script src="js/vanilla-tilt.min.js"></script>
+    <script src="https://unpkg.com/flowbite/dist/flowbite.min.js"></script>
+    <div id="menuOverlay" class="menu-overlay" hidden></div> <!-- Overlay pour le menu en version mobile -->
 </body>
 
 </html>
