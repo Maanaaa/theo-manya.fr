@@ -1,4 +1,4 @@
-# 🌐 Theo Manya – Portfolio 
+# 🌐 Théo Manya – Portfolio 
 <p align="center">
   <a href="https://theo-manya.fr">
     <img src="https://i.ibb.co/6J7dDDHJ/mockup.png" alt="Aperçu du site" width="100%"/>
