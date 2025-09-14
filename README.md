@@ -98,9 +98,13 @@ Mon portfolio est un reflet de mon univers.
   <img src="https://img.shields.io/badge/Code-CSS3-blue?logo=css3&logoColor=white" alt="CSS3"/>
   <img src="https://img.shields.io/badge/Code-JS-yellow?logo=javascript&logoColor=black" alt="JavaScript"/>
   <img src="https://img.shields.io/badge/Code-PHP-777bb4?logo=php&logoColor=white" alt="PHP"/>
+  <img src="https://img.shields.io/badge/Code-Java-007396?logo=java&logoColor=white" alt="Java"/>
   <img src="https://img.shields.io/badge/DB-MySQL-005C84?logo=mysql&logoColor=white" alt="MySQL"/>
   <img src="https://img.shields.io/badge/Env-Docker-2496ED?logo=docker&logoColor=white" alt="Docker"/>
   <img src="https://img.shields.io/badge/Design-Figma-F24E1E?logo=figma&logoColor=white" alt="Figma"/>
   <img src="https://img.shields.io/badge/Hosting-Hostinger-673DE6?logo=hostinger&logoColor=white" alt="Hostinger"/>
+  <img src="https://img.shields.io/badge/Design-Photoshop-31A8FF?logo=adobephotoshop&logoColor=white" alt="Photoshop"/>
+  <img src="https://img.shields.io/badge/Design-Illustrator-FF9A00?logo=adobeillustrator&logoColor=white" alt="Illustrator"/>
+  <img src="https://img.shields.io/badge/Design-InDesign-FF3366?logo=adobeindesign&logoColor=white" alt="InDesign"/>
+  <img src="https://img.shields.io/badge/OS-macOS-000000?logo=apple&logoColor=white" alt="macOS"/>
 </p>
-
