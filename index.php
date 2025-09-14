@@ -219,11 +219,15 @@ $resultats->closeCursor();
                 </div>
 
                 <p id="popup-desc" class="popup-desc"></p>
-
-                <a id="popup-cta" class="popup-cta" href="#" target="_blank" rel="noopener" hidden>En savoir plus</a>
             </div>
+
+            <a id="popup-cta" class="popup-cta" href="#" target="_blank" rel="noopener" hidden>
+                En savoir plus
+            </a>
         </div>
+
     </div>
+
 
     <footer style="margin-top: 4rem; padding: 2rem 1rem; text-align: center; background-color: #111; color: #fff;">
         <p style="font-family: 'Inter', sans-serif; font-weight: 300;">© <?php echo date("Y"); ?> Théo Manya. Tous droits réservés.</p>
