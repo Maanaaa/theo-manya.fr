@@ -1191,6 +1191,61 @@ body {
     background: rgba(255, 46, 136, .12);
 }
 
+/* Centre la popup  */
+.popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+}
+
+.popup-box {
+  width: min(92vw, 720px);
+  max-height: calc(100svh - 12vh);
+  margin: 6vh auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* L’image garde sa taille mais ne prends pas tout l’écran */
+.popup-media {
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 45svh;         
+  background: #111;
+}
+/* Simuler la barre de scroll pour montrer qu'il y a encore du texte en dessous */
+.popup-body {
+  position: relative;
+}
+
+.popup-body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255,46,136,.4), rgba(241,113,169,.7));
+  border-radius: 100%;
+  pointer-events: none; /* n'empêche pas le scroll */
+}
+
+/* Rendre scrollable si le contenu est trop long */
+.popup-body {
+  flex: 1 1 auto;            
+  min-height: 0; /* Pour faire marcher overflow dans un flex */
+  overflow: auto; /* scroll interne */
+  padding: 14px 14px 16px;
+  scrollbar-color: var(--color-highlight) var(--color-navbar);
+  scrollbar-width: thin;
+}
+
+
+
 body.no-scroll {
     overflow: hidden !important;
 }
