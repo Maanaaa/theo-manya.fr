@@ -2,6 +2,7 @@
 include("config/configuration.php");
 include("scripts/connection.php");
 include("scripts/fonctions.php");
+require("scripts/auth.php");
 
 // Projets
 $requete = 'SELECT id_projet, titre, description FROM Projets';

@@ -62,7 +62,7 @@ $resultats->closeCursor();
             </button>
 
             <!-- menu -->
-            <ul class="flex hidden" id="menu" aria-label="Menu de navigation">
+            <ul class="flex " id="menu" aria-label="Menu de navigation">
                 <li><a href="#projets">Projets</a></li>
                 <li><a href="#skills">Compétences</a></li>
                 <li><a href="#experiences">Expériences</a></li>
@@ -250,7 +250,7 @@ $resultats->closeCursor();
     <footer style="margin-top: 4rem; padding: 2rem 1rem; text-align: center; background-color: #111; color: #fff;">
         <p style="font-family: 'Inter', sans-serif; font-weight: 300;">© <?php echo date("Y"); ?> Théo Manya. Tous droits réservés.</p>
         <p style="margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
-            Développé avec ❤️ et un soupçon de café.
+            Développé avec ❤️ et un soupçon de café
         </p>
     </footer>
     <script src="js/vanilla-tilt.min.js"></script>

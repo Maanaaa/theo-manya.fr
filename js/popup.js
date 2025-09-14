@@ -1,5 +1,5 @@
 // Popup au clique sur un projet 
-function initPopup() {
+function init() {
   let modal = document.getElementById('projet-modal');
   if (!modal) return;
 
@@ -89,4 +89,4 @@ function initPopup() {
 }
 
 
-window.addEventListener("load", initPopup);
+window.addEventListener("load", init);
