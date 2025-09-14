@@ -795,15 +795,69 @@ nav ul li a:hover {
         width: 80%;
     }
 
-    .skills { width: 70%; display: flex; flex-wrap: wrap; justify-content: center; gap: 5vh; margin-top: 10vh; }
-.skill { display: flex; align-items: center; gap: 0.9rem; width: 42%; padding: 1rem; border-radius: var(--radius-medium); border: 1px solid #3b82f64d; background-color: rgba(21,21,21,.3); background-image: linear-gradient(to bottom right, #06b6d433, #3b82f633); }
-.skill:hover { background-image: linear-gradient(to bottom right, #3b82f633, #06b6d433); }
-.skill svg { width: 22px; height: 22px; padding: 12px; border-radius: 12px; background-color: #ffffff0d; color: rgb(96 165 250); }
-.skill p { text-align: left; margin: 0; color: var(--color-white); }
-.skill p strong { display: block; font-weight: 700; letter-spacing: .2px; }
-.skill p span { display: block; margin-top: 2px; font-size: .92em; color: var(--color-text); opacity: .9; }
-.skill p span { line-height: 1.5; }
-@media (max-width: 1024px){ .skill{ width: 80%; } }
+    .skills {
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5vh;
+        margin-top: 10vh;
+    }
+
+    .skill {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        width: 42%;
+        padding: 1rem;
+        border-radius: var(--radius-medium);
+        border: 1px solid #3b82f64d;
+        background-color: rgba(21, 21, 21, .3);
+        background-image: linear-gradient(to bottom right, #06b6d433, #3b82f633);
+    }
+
+    .skill:hover {
+        background-image: linear-gradient(to bottom right, #3b82f633, #06b6d433);
+    }
+
+    .skill svg {
+        width: 22px;
+        height: 22px;
+        padding: 12px;
+        border-radius: 12px;
+        background-color: #ffffff0d;
+        color: rgb(96 165 250);
+    }
+
+    .skill p {
+        text-align: left;
+        margin: 0;
+        color: var(--color-white);
+    }
+
+    .skill p strong {
+        display: block;
+        font-weight: 700;
+        letter-spacing: .2px;
+    }
+
+    .skill p span {
+        display: block;
+        margin-top: 2px;
+        font-size: .92em;
+        color: var(--color-text);
+        opacity: .9;
+    }
+
+    .skill p span {
+        line-height: 1.5;
+    }
+
+    @media (max-width: 1024px) {
+        .skill {
+            width: 80%;
+        }
+    }
 
 
     /* expériences */
@@ -1204,55 +1258,59 @@ body {
 
 /* Centre la popup  */
 .popup {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: grid;
-  place-items: center;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
 }
 
 .popup-box {
-  width: min(92vw, 720px);
-  max-height: calc(100svh - 12vh);
-  margin: 6vh auto;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+    width: min(92vw, 720px);
+    max-height: calc(100svh - 12vh);
+    margin: 6vh auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 /* L’image garde sa taille mais ne prends pas tout l’écran */
 .popup-media {
-  flex: 0 0 auto;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  max-height: 45svh;         
-  background: #111;
+    flex: 0 0 auto;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 45svh;
+    background: #111;
 }
+
 /* Simuler la barre de scroll pour montrer qu'il y a encore du texte en dessous */
 .popup-body {
-  position: relative;
+    position: relative;
 }
 
 .popup-body::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 12px;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(255,46,136,.4), rgba(241,113,169,.7));
-  border-radius: 100%;
-  pointer-events: none; /* n'empêche pas le scroll */
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 46, 136, .4), rgba(241, 113, 169, .7));
+    border-radius: 100%;
+    pointer-events: none;
+    /* n'empêche pas le scroll */
 }
 
 /* Rendre scrollable si le contenu est trop long */
 .popup-body {
-  flex: 1 1 auto;            
-  min-height: 0; /* Pour faire marcher overflow dans un flex */
-  overflow: auto; /* scroll interne */
-  padding: 14px 14px 16px;
-  scrollbar-color: var(--color-highlight) var(--color-navbar);
-  scrollbar-width: thin;
+    flex: 1 1 auto;
+    min-height: 0;
+    /* Pour faire marcher overflow dans un flex */
+    overflow: auto;
+    /* scroll interne */
+    padding: 14px 14px 16px;
+    scrollbar-color: var(--color-highlight) var(--color-navbar);
+    scrollbar-width: thin;
 }
 
 
