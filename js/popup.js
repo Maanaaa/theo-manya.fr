@@ -86,7 +86,12 @@ function init() {
       openPopup();
     });
   });
+
+
+  
 }
+
+
 
 
 window.addEventListener("load", init);

@@ -40,6 +40,7 @@ $resultats->closeCursor();
     <script src="js/filter.js" defer></script>
     <script src="js/popup.js" defer></script>
     <script src="js/script.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 
 <body>
@@ -141,45 +142,22 @@ $resultats->closeCursor();
         </div>
         <div class="skills spaceTop">
             <?php
-            $svgs = [
-                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 8-4 4 4 4m8 0 4-4-4-4m-2-3-4 14"/></svg>',
-                '<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-    <path d="M47,5v40L30.619,5H47z M17.762,36.579H25L28.429,45h7.238L25,18.801L17.762,36.579z M3,5v40L19.381,5H3z"></path>
-</svg>',
-                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7h-1M8 7h-.688M13 5v4m-2-2h4"/>
-</svg>
-',
-                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-  <path fill-rule="evenodd" d="M9 7V2.221a2 2 0 0 0-.5.365L4.586 6.5a2 2 0 0 0-.365.5H9Zm2 0V2h7a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Zm-2 4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H9Zm0 2h2v2H9v-2Zm7.965-.557a1 1 0 0 0-1.692-.72l-1.268 1.218a1 1 0 0 0-.308.721v.733a1 1 0 0 0 .37.776l1.267 1.032a1 1 0 0 0 1.631-.776v-2.984Z" clip-rule="evenodd"/>
-</svg>
-',
-                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
-</svg>
-',
-                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1M5 12h14M5 12a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1m-2 3h.01M14 15h.01M17 9h.01M14 9h.01"/>
-</svg>
-
-',
-                '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 6c0 1.657-3.134 3-7 3S5 7.657 5 6m14 0c0-1.657-3.134-3-7-3S5 4.343 5 6m14 0v6M5 6v6m0 0c0 1.657 3.134 3 7 3s7-1.343 7-3M5 12v6c0 1.657 3.134 3 7 3s7-1.343 7-3v-6"/>
-</svg>
-',
-                '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>'
+            $skills = [
+                ["icon" => "code", "title" => "Front-end", "meta" => "HTML • CSS • JavaScript"],
+                ["icon" => "server", "title" => "Back-end", "meta" => "PHP • Java"],
+                ["icon" => "database", "title" => "Bases de données", "meta" => "MySQL • SQL • Modélisation"],
+                ["icon" => "package", "title" => "Outils / DevOps", "meta" => "Git • Docker"],
+                ["icon" => "pen-tool", "title" => "UI / UX Design", "meta" => "Figma • Accessibilité • Prototypage"],
+                ["icon" => "kanban", "title" => "Gestion de projet", "meta" => "Trello • Documentation"]
             ];
-
-            $index = 0;
-            foreach ($tabSkills as $skill): ?>
+            foreach ($skills as $s): ?>
                 <div data-tilt class="skill flex">
-                    <?php echo $svgs[$index % count($svgs)]; ?>
-                    <p><?php echo $skill["titre"]; ?></p>
+                    <i data-lucide="<?php echo $s['icon']; ?>"></i>
+                    <p><strong><?php echo $s['title']; ?><br></strong><span><?php echo str_replace(' • ', '<br>', $s['meta']); ?></span></p>
                 </div>
-            <?php
-                $index++;
-            endforeach; ?>
+            <?php endforeach; ?>
         </div>
+
     </section>
     <section id="experiences" class="spaceTop flex">
         <div class="showCase">
@@ -256,6 +234,7 @@ $resultats->closeCursor();
     <script src="js/vanilla-tilt.min.js"></script>
     <script src="https://unpkg.com/flowbite/dist/flowbite.min.js"></script>
     <div id="menuOverlay" class="menu-overlay" hidden></div> <!-- Overlay pour le menu en version mobile -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 </body>
 
 </html>
