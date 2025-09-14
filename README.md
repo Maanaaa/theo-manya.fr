@@ -82,5 +82,25 @@ Intégration **HTML/CSS** • Dev **PHP natif** • Dashboard **Bootstrap** • 
 
 ---
 
-## 📸 Aperçu
-*(Screenshots supplémentaires : Figma, schéma fonctionnel…)*  
+---
+
+## 🙋‍♂️ À propos de moi
+Je m’appelle **Théo Manya**, étudiant passionné par le **développement web**, la **tech** et le **design**.  
+Mon objectif est de créer des expériences digitales efficaces et accessibles, tout en explorant des solutions innovantes.  
+
+En dehors du code, je suis aussi passionné de **moto 🏍️** et de **musique 🎶 (DJ à mes heures perdues)**.  
+Mon portfolio est un reflet de mon univers.  
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Code-HTML5-orange?logo=html5&logoColor=white" alt="HTML5"/>
+  <img src="https://img.shields.io/badge/Code-CSS3-blue?logo=css3&logoColor=white" alt="CSS3"/>
+  <img src="https://img.shields.io/badge/Code-JS-yellow?logo=javascript&logoColor=black" alt="JavaScript"/>
+  <img src="https://img.shields.io/badge/Code-PHP-777bb4?logo=php&logoColor=white" alt="PHP"/>
+  <img src="https://img.shields.io/badge/DB-MySQL-005C84?logo=mysql&logoColor=white" alt="MySQL"/>
+  <img src="https://img.shields.io/badge/Env-Docker-2496ED?logo=docker&logoColor=white" alt="Docker"/>
+  <img src="https://img.shields.io/badge/Design-Figma-F24E1E?logo=figma&logoColor=white" alt="Figma"/>
+  <img src="https://img.shields.io/badge/Hosting-Hostinger-673DE6?logo=hostinger&logoColor=white" alt="Hostinger"/>
+</p>
+
