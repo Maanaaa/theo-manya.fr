@@ -185,7 +185,7 @@ $resultats->closeCursor();
         <div class="description showCase">
             <p><span>Expertise</span></p>
             <h2 class="smallSpaceTop">Mes <span>Compétences</span></h2>
-            <p class="smallSpaceTop">Un aperçu de mes expériences professionnelles et projets réalisés.</p>
+            <p class="smallSpaceTop">Un aperçu de mes savoir-faire et de mon parcours professionnel.</p>
         </div>
         <div class="skills spaceTop">
             <?php
