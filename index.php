@@ -22,26 +22,55 @@ $tabXp = $resultats->fetchAll(PDO::FETCH_ASSOC);
 $resultats->closeCursor();
 ?>
 <!DOCTYPE html>
-<html>
-
+<html lang="fr">
 <head>
-    <title>Théo Manya - Portfolio</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
-    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,300,500,600,700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="css/reset.css">
-    <!-- JS -->
-    <script src="js/typeEffect.js" defer></script>
-    <script src="js/caroussel.js" defer></script>
-    <script src="js/filter.js" defer></script>
-    <script src="js/popup.js" defer></script>
-    <script src="js/script.js" defer></script>
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Théo Manya - Portfolio développeur web & digital designer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Théo Manya, développeur web et digital designer. Découvrez mes projets, compétences et expériences.">
+  <meta name="author" content="Théo Manya">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data:;">
+
+  <!-- Préchargement des polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
+
+  <!-- Autres polices -->
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,600,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/index.css">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Théo Manya - Portfolio développeur web & digital designer">
+  <meta property="og:description" content="Découvrez mes projets en développement web, design et UI/UX.">
+  <meta property="og:image" content="https://theo-manya.fr/img/portrait_manya_theo.webp">
+  <meta property="og:image:alt" content="Portrait de Théo Manya, développeur web & digital designer">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:url" content="https://theo-manya.fr/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Théo Manya - Portfolio développeur web">
+  <meta name="twitter:description" content="Découvrez mes projets, compétences et expériences en développement web et design.">
+  <meta name="twitter:image" content="https://theo-manya.fr/img/portrait_manya_theo.webp">
+
+  <!-- Scripts -->
+  <script src="js/typeEffect.js" defer></script>
+  <script src="js/caroussel.js" defer></script>
+  <script src="js/filter.js" defer></script>
+  <script src="js/popup.js" defer></script>
+  <script src="js/script.js" defer></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
+
 
 <body>
     <header class="flex horizontal-center vertical-center">
@@ -74,8 +103,15 @@ $resultats->closeCursor();
     <div class="intro">
         <!---<img src="img/header.png" alt="Portfolio de Manya Théo, SAE203. Image principale du header."> !-->
         <div class="portrait-container">
-            <img src="img/portrait_manya_theo.webp"  alt="Portrait de Théo Manya, étudiant en BUT MMI à l'IUT du Puy-en-Velay. Développement web." class="portrait">
+            <img
+                src="img/portrait_manya_theo.webp"
+                alt="Théo Manya — développeur web & digital designer"
+                class="portrait"
+                width="200" height="200"
+                decoding="async"
+                fetchpriority="high">
         </div>
+
         <h1 class="typingEffect"></h1>
 
         <div class="description spaceTop">
