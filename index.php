@@ -185,7 +185,7 @@ $resultats->closeCursor();
         <div class="description showCase">
             <p><span>Expertise</span></p>
             <h2 class="smallSpaceTop">Mes <span>Compétences</span></h2>
-            <p class="smallSpaceTop">Un aperçu de mes savoir-faire et de mon parcours professionnel.</p>
+            <p class="smallSpaceTop">Mes savoir-faire techniques et créatifs, essentiels pour concevoir des projets web.</p>
         </div>
         <div class="skills spaceTop">
             <?php
@@ -209,7 +209,7 @@ $resultats->closeCursor();
     <section id="experiences" class="spaceTop flex">
         <div class="showCase">
             <h2 class="smallSpaceTop">Mes <span>Expériences</span></h2>
-            <p class="smallSpaceTop">Découvrez une sélection de mes réalisations, alliant technique et créativité pour offrir des expériences digitales uniques.</p>
+            <p class="smallSpaceTop">Mon parcours à travers différents projets et missions professionnelles.</p>
         </div>
         <div class="left spaceTop">
             <div class="filtre">
