@@ -73,7 +73,11 @@ $resultats->closeCursor();
 
     <div class="intro">
         <!---<img src="img/header.png" alt="Portfolio de Manya Théo, SAE203. Image principale du header."> !-->
+        <div class="portrait-container">
+            <img src="img/portrait_manya_theo.png" alt="Portrait de Théo Manya, étudiant en BUT MMI à l'IUT du Puy-en-Velay. Développement web." class="portrait">
+        </div>
         <h1 class="typingEffect"></h1>
+
         <div class="description spaceTop">
             <p>Passionné par le développement, le design et les interfaces modernes. Je crée des expériences digitales uniques qui allient technique et créativité.</p>
             <a href="#projets" class="spaceTop">Voir mes projets</a>
