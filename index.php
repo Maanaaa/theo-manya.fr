@@ -119,7 +119,7 @@ $resultats->closeCursor();
             </picture>
         </div>
 
-        <h1 class="typingEffect"></h1>
+        <h1 class="typingEffect"> </h1>
 
         <div class="description spaceTop">
             <p>Passionné par le développement, le design et les interfaces modernes. Je crée des expériences digitales uniques qui allient technique et créativité.</p>
@@ -185,7 +185,7 @@ $resultats->closeCursor();
         <div class="description showCase">
             <p><span>Expertise</span></p>
             <h2 class="smallSpaceTop">Mes <span>Compétences</span></h2>
-            <p class="smallSpaceTop">Découvrez une sélection de mes réalisations, alliant technique et créativité pour offrir des expériences digitales uniques.</p>
+            <p class="smallSpaceTop">Un aperçu de mes expériences professionnelles et projets réalisés.</p>
         </div>
         <div class="skills spaceTop">
             <?php
