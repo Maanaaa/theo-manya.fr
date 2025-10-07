@@ -64,7 +64,7 @@ $resultats->closeCursor();
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Théo Manya - Portfolio développeur web">
     <meta name="twitter:description" content="Découvrez mes projets, compétences et expériences en développement web et design.">
-    <meta name="twitter:image" content="https://theo-manya.fr/img/portrait_manya_theo.webp">
+    <meta name="twitter:image" content="https://theo-manya.fr/img/portrait_manya_theo_entier.webp">
 
     <!-- Scripts -->
     <script src="js/typeEffect.js" defer></script>
