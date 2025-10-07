@@ -35,6 +35,7 @@ $resultats->closeCursor();
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data:;">
     <link rel="preload" as="image" href="img/portrait_manya_theo.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="img/portrait_manya_theo_entier.webp" type="image/webp" fetchpriority="high">
     <!-- Préchargement des polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
