@@ -54,7 +54,7 @@ $resultats->closeCursor();
     <!-- Open Graph -->
     <meta property="og:title" content="Théo Manya - Portfolio développeur web & digital designer">
     <meta property="og:description" content="Découvrez mes projets en développement web, design et UI/UX.">
-    <meta property="og:image" content="https://theo-manya.fr/img/portrait_manya_theo.webp">
+    <meta property="og:image" content="https://theo-manya.fr/img/portrait_manya_theo_entier.wepb">
     <meta property="og:image:alt" content="Portrait de Théo Manya, développeur web & digital designer">
     <meta property="og:image:type" content="image/webp">
     <meta property="og:url" content="https://theo-manya.fr/">
