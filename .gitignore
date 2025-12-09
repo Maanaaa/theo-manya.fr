@@ -1,0 +1,14 @@
+img/*
+Dockerfile
+docker-compose.yml
+
+IDE/
+.vscode/
+.idea/
+*.log
+*.tmp
+*.bak
+
+# DS_STORE MACOS
+.DS_Store
+Thumbs.db

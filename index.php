@@ -2,22 +2,38 @@
 include("config/configuration.php");
 include("scripts/connection.php");
 
+$requete_projets = '
+    SELECT 
+        p.id_projet, p.titre, p.description, p.date, p.image, p.lien,
+        GROUP_CONCAT(c.titre SEPARATOR " ") AS competences
+    FROM Projets p
+    LEFT JOIN ProjetCompetences pc ON p.id_projet = pc.id_projet
+    LEFT JOIN Competences c ON pc.id_competence = c.id_competence
+    GROUP BY p.id_projet, p.titre, p.description, p.date, p.image, p.lien
+    ORDER BY p.date DESC
+';
 
-// Projets
-$requete = 'SELECT id_projet, titre, description, date, image, lien FROM Projets ORDER BY date DESC';
-$resultats = $connection->query($requete);
+
+$resultats = $connection->query($requete_projets);
 $tabProjets = $resultats->fetchAll(PDO::FETCH_ASSOC);
 $resultats->closeCursor();
 
-// Compétences
-$requete = 'SELECT id_competence, titre, maitrise FROM Competences';
-$resultats = $connection->query($requete);
+$requete_comp = 'SELECT id_competence, titre, maitrise FROM Competences';
+$resultats = $connection->query($requete_comp);
 $tabSkills = $resultats->fetchAll(PDO::FETCH_ASSOC);
 $resultats->closeCursor();
 
-// Expériences
-$requete = 'SELECT id_experience, poste, debut, fin, entreprise FROM Experience ORDER BY fin DESC';
-$resultats = $connection->query($requete);
+$requete_xp = '
+    SELECT 
+        e.id_experience, e.poste, e.debut, e.fin, e.entreprise,
+        GROUP_CONCAT(c.titre SEPARATOR ", ") AS competences_xp
+    FROM Experience e
+    LEFT JOIN ExperiencesCompetences ec ON e.id_experience = ec.id_experience
+    LEFT JOIN Competences c ON ec.id_competence = c.id_competence
+    GROUP BY e.id_experience, e.poste, e.debut, e.fin, e.entreprise
+    ORDER BY e.fin DESC
+';
+$resultats = $connection->query($requete_xp);
 $tabXp = $resultats->fetchAll(PDO::FETCH_ASSOC);
 $resultats->closeCursor();
 ?>
@@ -36,7 +52,7 @@ $resultats->closeCursor();
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data:;">
     <link rel="preload" as="image" href="img/portrait_manya_theo.webp" type="image/webp" fetchpriority="high">
     <link rel="preload" as="image" href="img/portrait_manya_theo_entier.webp" type="image/webp" fetchpriority="high">
-    <!-- Préchargement des polices -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -44,15 +60,12 @@ $resultats->closeCursor();
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
     </noscript>
 
-    <!-- Autres polices -->
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,600,700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Théo Manya - Portfolio développeur web & digital designer">
     <meta property="og:description" content="Découvrez mes projets en développement web, design et UI/UX.">
     <meta property="og:image" content="https://theo-manya.fr/img/portrait_manya_theo_entier.wepb">
@@ -61,13 +74,11 @@ $resultats->closeCursor();
     <meta property="og:url" content="https://theo-manya.fr/">
     <meta property="og:type" content="website">
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Théo Manya - Portfolio développeur web">
     <meta name="twitter:description" content="Découvrez mes projets, compétences et expériences en développement web et design.">
     <meta name="twitter:image" content="https://theo-manya.fr/img/portrait_manya_theo_entier.webp">
 
-    <!-- Scripts -->
     <script src="js/typeEffect.js" defer></script>
     <script src="js/caroussel.js" defer></script>
     <script src="js/filter.js" defer></script>
@@ -76,7 +87,6 @@ $resultats->closeCursor();
     <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 
-
 <body>
     <header class="flex horizontal-center vertical-center">
         <nav>
@@ -84,7 +94,6 @@ $resultats->closeCursor();
                 <p>Théo <span>MANYA</span></p>
             </div>
 
-            <!-- bouton burger mobile -->
             <button
                 id="menuBtn"
                 class="menu-btn"
@@ -96,7 +105,6 @@ $resultats->closeCursor();
                 <span class="menu-icon"></span>
             </button>
 
-            <!-- menu -->
             <ul class="flex " id="menu" aria-label="Menu de navigation">
                 <li><a href="#projets">Projets</a></li>
                 <li><a href="#skills">Compétences</a></li>
@@ -106,7 +114,6 @@ $resultats->closeCursor();
     </header>
 
     <div class="intro">
-        <!---<img src="img/header.png" alt="Portfolio de Manya Théo, SAE203. Image principale du header."> !-->
         <div class="portrait-container">
             <picture>
                 <source srcset="img/portrait_manya_theo.avif" type="image/avif">
@@ -127,6 +134,7 @@ $resultats->closeCursor();
             <a href="#projets" class="spaceTop">Voir mes projets</a>
         </div>
     </div>
+
     <section id="projets" class="spaceTopPadding">
         <div class="description showCase">
             <p><span>Portfolio</span></p>
@@ -138,29 +146,20 @@ $resultats->closeCursor();
             <div class="carousel spaceTop">
                 <div class="decoration-haut"></div>
                 <?php foreach ($tabProjets as $index => $projet): ?>
-                    <?php
-                    $requete_competences = 'SELECT c.titre FROM ProjetCompetences pc JOIN Competences c ON pc.id_competence = c.id_competence WHERE pc.id_projet = :id_projet';
-                    $resultats_competences = $connection->prepare($requete_competences);
-                    $resultats_competences->bindParam(':id_projet', $projet['id_projet']);
-                    $resultats_competences->execute();
-                    $tabProjetsCompetences = $resultats_competences->fetchAll(PDO::FETCH_ASSOC);
-                    ?>
                     <div class="card">
                         <p class="skill">
-                            <?php foreach ($tabProjetsCompetences as $competence): ?>
-                                <?php echo $competence['titre'] . ' '; ?>
-                            <?php endforeach; ?>
+                            <?= htmlspecialchars($projet['competences'] ?? '', ENT_QUOTES, 'UTF-8') ?>
                         </p>
-                        <img src="<?php echo $projet['image']; ?>" alt="Portfolio de Manya Théo, SAE203." loading="lazy">
+                        <img src="<?= htmlspecialchars($projet['image'], ENT_QUOTES, 'UTF-8') ?>" alt="Portfolio de Manya Théo, SAE203." loading="lazy">
                         <div class="bottom">
-                            <p><?php echo $projet['titre']; ?></p>
-                            <p><?php echo $projet['date']; ?></p>
+                            <p><?= htmlspecialchars($projet['titre'], ENT_QUOTES, 'UTF-8') ?></p>
+                            <p><?= htmlspecialchars($projet['date'], ENT_QUOTES, 'UTF-8') ?></p>
                         </div>
                         <div class="description">
-                            <p><?php echo $projet['description']; ?></p>
+                            <p><?= htmlspecialchars($projet['description'], ENT_QUOTES, 'UTF-8') ?></p>
                         </div>
-                        <?php if ($projet['lien'] != NULL): ?>
-                            <a href="<?php echo $projet["lien"] ?>" target="_blank" class="more-info">En savoir plus</a>
+                        <?php if (!empty($projet['lien'])): ?>
+                            <a href="<?= htmlspecialchars($projet['lien'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" class="more-info">En savoir plus</a>
                         <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
@@ -175,13 +174,12 @@ $resultats->closeCursor();
             <div class="controlButtons">
                 <button id="toggleMode">Mode Manuel</button>
                 <button id="prevBtn">
-                    <
-                        <button id="nextBtn">>
-                </button>
+                    << /button>
+                        <button id="nextBtn">></button>
             </div>
-
         </div>
     </section>
+
     <section id="skills" class="spaceTop">
         <div class="description showCase">
             <p><span>Expertise</span></p>
@@ -200,13 +198,13 @@ $resultats->closeCursor();
             ];
             foreach ($skills as $s): ?>
                 <div data-tilt class="skill flex">
-                    <i data-lucide="<?php echo $s['icon']; ?>"></i>
-                    <p><strong><?php echo $s['title']; ?><br></strong><span><?php echo str_replace(' • ', '<br>', $s['meta']); ?></span></p>
+                    <i data-lucide="<?= htmlspecialchars($s['icon'], ENT_QUOTES, 'UTF-8') ?>"></i>
+                    <p><strong><?= htmlspecialchars($s['title'], ENT_QUOTES, 'UTF-8') ?><br></strong><span><?= str_replace(' • ', '<br>', htmlspecialchars($s['meta'], ENT_QUOTES, 'UTF-8')) ?></span></p>
                 </div>
             <?php endforeach; ?>
         </div>
-
     </section>
+
     <section id="experiences" class="spaceTop flex">
         <div class="showCase">
             <h2 class="smallSpaceTop">Mes <span>Expériences</span></h2>
@@ -224,33 +222,29 @@ $resultats->closeCursor();
                 <ul>
                     <?php foreach ($tabXp as $xp): ?>
                         <li>
-                            <?php
-                            $requete_xp_competences = 'SELECT c.titre FROM ExperiencesCompetences ec JOIN Competences c ON ec.id_competence = c.id_competence WHERE ec.id_experience = :id_experience';
-                            $resultats_xp_competences = $connection->prepare($requete_xp_competences);
-                            $resultats_xp_competences->bindParam(':id_experience', $xp['id_experience']);
-                            $resultats_xp_competences->execute();
-                            $tabXpCompetences = $resultats_xp_competences->fetchAll(PDO::FETCH_ASSOC);
-                            ?>
-
-                            <p><?php echo $xp["poste"] ?> - <?php echo $xp["entreprise"] ?>
-                                <?php
-                                if (isset($xp["fin"])) {
-                                    echo "<p class='date'>(" . $xp["debut"] . " - " . $xp["fin"] . ")</p>";
-                                } else {
-                                    echo "(" . $xp["debut"] . " à aujourd'hui)";
-                                }
-                                ?>
-                            <p></p>
+                            <p>
+                                <?= htmlspecialchars($xp["poste"], ENT_QUOTES, 'UTF-8') ?>
+                                -
+                                <?= htmlspecialchars($xp["entreprise"], ENT_QUOTES, 'UTF-8') ?>
+                            </p>
+                            <?php if (isset($xp["fin"])): ?>
+                                <p class='date'>(<?= htmlspecialchars($xp["debut"], ENT_QUOTES, 'UTF-8') ?> - <?= htmlspecialchars($xp["fin"], ENT_QUOTES, 'UTF-8') ?>)</p>
+                            <?php else: ?>
+                                <p class='date'>(<?= htmlspecialchars($xp["debut"], ENT_QUOTES, 'UTF-8') ?> à aujourd'hui)</p>
+                            <?php endif; ?>
+                            <?php if (!empty($xp['competences_xp'])): ?>
+                                <p class="skills">
+                                    <?= htmlspecialchars($xp['competences_xp'], ENT_QUOTES, 'UTF-8') ?>
+                                </p>
+                            <?php endif; ?>
                         </li>
                     <?php endforeach ?>
                 </ul>
             </div>
         </div>
-        <div class="right">
-        </div>
+        <div class="right"></div>
     </section>
 
-    <!-- Popup Projet -->
     <div id="projet-modal" class="popup" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="popup-overlay" data-close="popup"></div>
         <div class="popup-box" role="document">
@@ -273,20 +267,18 @@ $resultats->closeCursor();
                 En savoir plus
             </a>
         </div>
-
     </div>
 
-
     <footer style="margin-top: 4rem; padding: 2rem 1rem; text-align: center; background-color: #111; color: #fff;">
-        <p style="font-family: 'Inter', sans-serif; font-weight: 300;">© <?php echo date("Y"); ?> Théo Manya. Tous droits réservés.</p>
+        <p style="font-family: 'Inter', sans-serif; font-weight: 300;">© <?= date("Y"); ?> Théo Manya. Tous droits réservés.</p>
         <p style="margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
             Développé avec ❤️ et un soupçon de café
         </p>
     </footer>
+
     <script src="js/vanilla-tilt.min.js"></script>
     <script src="https://unpkg.com/flowbite/dist/flowbite.min.js"></script>
-    <div id="menuOverlay" class="menu-overlay" hidden></div> <!-- Overlay pour le menu en version mobile -->
+    <div id="menuOverlay" class="menu-overlay" hidden></div>
     <script src="https://unpkg.com/lucide@latest" defer></script>
 </body>
-
 </html>
