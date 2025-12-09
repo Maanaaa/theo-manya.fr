@@ -104,7 +104,7 @@ $resultats->closeCursor();
             </ul>
         </nav>
     </header>
-
+    <main>
     <div class="intro">
         <!---<img src="img/header.png" alt="Portfolio de Manya Théo, SAE203. Image principale du header."> !-->
         <div class="portrait-container">
@@ -276,7 +276,7 @@ $resultats->closeCursor();
 
     </div>
 
-
+    </main>
     <footer style="margin-top: 4rem; padding: 2rem 1rem; text-align: center; background-color: #111; color: #fff;">
         <p style="font-family: 'Inter', sans-serif; font-weight: 300;">© <?php echo date("Y"); ?> Théo Manya. Tous droits réservés.</p>
         <p style="margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
